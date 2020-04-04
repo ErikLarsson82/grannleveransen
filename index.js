@@ -6,6 +6,9 @@ const port = process.env.PORT || 3000
 
 let helpers = []
 
+app.use(express.static('static'))
+
+
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
@@ -29,5 +32,3 @@ function helper(request, response)  {
 async function helperList(request, response)  {
   response.status(200).json(helpers)
 } 
-
-//app.use(express.static('.', 'static'))
