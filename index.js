@@ -12,6 +12,10 @@ let helpers = []
 	/static/index.html -> oursite.com/index.html */
 app.use(express.static('static'))
 
+/* 	Serve the image folder /static/images
+	/static/images/img.png -> oursite.com/images/img.png */
+app.use("/images", express.static('static/images'))
+
 /*	Use node module body-parser to be able to read request.body in the request handlers */
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
