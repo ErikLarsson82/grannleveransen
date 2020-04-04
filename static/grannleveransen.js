@@ -24,18 +24,22 @@ function initMap() {
     mapTypeId: 'terrain'
   })
 
-  cookie = Cookies.getJSON('me')
-  console.log('cookie read', cookie)
-  if (cookie && cookie.position) {
-    whereAmI = cookie.position
-    setState('you')
-  }
-
   fetch('./helper-list')
     .then( res => res.json() )
     .then( _helpers => {
       helpers = _helpers
       circles = _helpers.map(createCircle)
+
+      if (_helpers.length > 0) {
+        cookie = Cookies.getJSON('me')
+        console.log('cookie read', cookie)
+        if (cookie && cookie.position) {
+          whereAmI = cookie.position
+          setState('you')
+        }
+      } else {
+        Cookies.remove('me')
+      }
     })
 }
 
