@@ -1,12 +1,22 @@
 <html>
+<head>
+	<script src="grannleveransen.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOxsbI1PYUHS7iDMIQuivzYrWxxQFo9FQ&libraries=drawing&callback=initMap" async defer></script>
+	<style>
+		#map {
+		  height: 500px;
+		}
+	</style>
+</head>
 <body>
 <img src="images/grannleveransen-logo.png"><br>
-Hello World Isolations-Hjälpen Sverige!
+Hello World Isolations-Hjälpen Sverige!<br><br>
+<a href="https://www.guaana.com/challenge/oKDiham57QdtpzZcn/results/hLMyjWXBH675rb3qC/dY8yzBcWi86cKnzBd/main">https://www.guaana.com/challenge/oKDiham57QdtpzZcn/results/hLMyjWXBH675rb3qC/dY8yzBcWi86cKnzBd/main</a><br><br>
+<a href="https://github.com/ErikLarsson82/isolations-hjalpen">https://github.com/ErikLarsson82/isolations-hjalpen</a><br><br>
+<input type="button" value="Rensa ALLA markeringar för alla" onClick="clearAll()"><br><br>
+<div id="map"></div>
 
-<a href="https://www.guaana.com/challenge/oKDiham57QdtpzZcn/results/hLMyjWXBH675rb3qC/dY8yzBcWi86cKnzBd/main">https://www.guaana.com/challenge/oKDiham57QdtpzZcn/results/hLMyjWXBH675rb3qC/dY8yzBcWi86cKnzBd/main</a>
-
-<a href="https://github.com/ErikLarsson82/isolations-hjalpen">https://github.com/ErikLarsson82/isolations-hjalpen</a>
-
-
+<h1>Drag och släpp denna markering <img src="images/marker.png"> och tryck "Här är jag" - ladda sedan om sidan</h1>
+<input type="button" value="Här är jag" onClick="submitMyself()">
 </body>
 </html>
