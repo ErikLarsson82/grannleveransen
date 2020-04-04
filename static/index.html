@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<title>Grannleveransen</title>
+	<script src="js.cookie.js"></script>
 	<script src="grannleveransen.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOxsbI1PYUHS7iDMIQuivzYrWxxQFo9FQ&libraries=drawing&callback=initMap" async defer></script>
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -48,8 +49,22 @@
 </div>
 <div id="menu-helpee-done" class="box hidden">
 	<h3>Försök att hitta hjälpare nära dig</h3>
-	<div class="menu-helper">
+	<div>
 		<p>Klicka på hjälpare (de blå cirklarna) för att initiera en kontakt och fråga om hjälp.</p>
+	</div>
+</div>
+<div id="info" class="box hidden">
+	<h3>Det här är information om en cirkel</h3>
+	<div>
+		<p id="info-status"></p>
+		<p>Skapad: 13 april</p>
+	</div>
+</div>
+<div id="you" class="box hidden">
+	<h3>Välkommen tillbaka</h3>
+	<div>
+		<p id="you-status"></p>
+		<p>Skapad: 13 april</p>
 	</div>
 </div>
 <div id="map"></div>

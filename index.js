@@ -34,11 +34,12 @@ app.listen(port, () => console.log(`App grannleveransen.se listening at http://l
 
 /* API to create a new helper */
 function helper(request, response)  {  
-  const { position, agent } = request.body
+  const { position, agent, id } = request.body
   
   helpers.push({
   	position: position,
-  	agent: agent
+  	agent: agent,
+    id: id
   })
 
   response.status(200).send()

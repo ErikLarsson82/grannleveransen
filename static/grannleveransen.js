@@ -5,10 +5,11 @@ const colors = {
   "helper": "#13bf41",
   "helper-active": "#b71bde",
   "helpee": "#187ddb",
-  "helpee-active": "#cc8916"
+  "helpee-active": "#cc8916",
+  "you": "#FF0000"
 }
 
-let map, marker, agent, pos, circles, selectedCircle, whereAmI
+let map, marker, agent, pos, circles, selectedCircle, whereAmI, cookie, helpers
 
 function initMap() {
   
@@ -23,19 +24,30 @@ function initMap() {
     mapTypeId: 'terrain'
   })
 
+  cookie = Cookies.getJSON('me')
+  console.log('cookie read', cookie)
+  if (cookie && cookie.position) {
+    whereAmI = cookie.position
+    setState('you')
+  }
+
   fetch('./helper-list')
     .then( res => res.json() )
-    .then( helpers => {
-      circles = helpers.map(createCircle)
-    })  
+    .then( _helpers => {
+      helpers = _helpers
+      circles = _helpers.map(createCircle)
+    })
 }
 
 function submitPosition() {
-  
+
   const payload = {
     position: pos,
-    agent: agent
+    agent: agent,
+    id: `id-${Math.round(Math.random() * 1000000)}`
   }
+
+  Cookies.set('me', payload)
 
   const config = {
     method: 'POST',
@@ -48,7 +60,7 @@ function submitPosition() {
     .then(() => {
       marker.setMap(null);
       
-      createCircle({ position: pos, agent: agent })
+      createCircle(payload)
     })
 }
 
@@ -60,21 +72,32 @@ function get(id) {
   return document.getElementById(id)
 }
 
-function createCircle({ position, agent }) {
+function createCircle(input) {
+
+  const activeColor = input.id && (cookie && cookie.id === input.id) ? colors['you'] : colors[input.agent]
+
   const c = new google.maps.Circle({
-    strokeColor: colors[agent],
+    strokeColor: activeColor,
     strokeOpacity: 0.8,
     strokeWeight: 2,
-    fillColor: colors[agent],
+    fillColor: activeColor,
     fillOpacity: 0.35,
     map: map,
-    center: position,
+    center: input.position,
     radius: RADIUS * 1.1,
     zIndex: 1
   })
+  c.customID = input.id
+
   google.maps.event.addListener(c, 'click', function(e) {
-    console.log(e)
-    console.log(google.maps.geometry.spherical.computeDistanceBetween(toLatLng(whereAmI), e.latLng))
+    if (c.customID === (cookie && cookie.id)) {
+      Cookies.remove('me')
+      c.setMap(null)
+      setState('main')
+    } else {
+      selectedCircle = helpers.find(x => x.id === c.customID)
+      setState('info')
+    }
   })
   return c
 }
@@ -110,29 +133,51 @@ function toLatLng(e) {
   return new google.maps.LatLng(e.lat, e.lng)
 }
 
+function formatKm(i) {
+  return "~" + (i / 1000).toFixed(1) + " km"
+}
+
 function setState(s) {
+  [
+    'menu-main',
+    'menu-helper',
+    'menu-helper-done',
+    'menu-helpee',
+    'menu-helpee-done',
+    'info',
+    'you'
+  ].forEach(x => {
+    get(x).style = "display: none;"  
+  })
   switch(s) {
+    case 'main':
+      get('menu-main').style = "display: inherit;"
+      break;
     case 'helper':
       agent = 'helper'
-      get('menu-main').style = "display: none;"
       get('menu-helper').style = "display: inherit;"
       createDraggableMarker()
       break;
     case 'helper-done':
       submitPosition()
       get('menu-helper-done').style = "display: inherit;"
-      get('menu-helper').style = "display: none;"
       break;
     case 'helpee':
       agent = 'helpee'
-      get('menu-main').style = "display: none;"
       get('menu-helpee').style = "display: inherit;"
       createDraggableMarker()
       break;
     case 'helpee-done':
       submitPosition()
       get('menu-helpee-done').style = "display: inherit;"
-      get('menu-helpee').style = "display: none;"
+      break;
+    case 'info':
+      get('info').style = "display: inherit;"
+      get('info-status').innerHTML = "Status: " + selectedCircle.agent + "<br>Position: [ " + selectedCircle.position.lat.toFixed(2) + ", " + selectedCircle.position.lng.toFixed(2) + " ]<br>Avstånd från dig: " + formatKm(google.maps.geometry.spherical.computeDistanceBetween(toLatLng(selectedCircle.position), toLatLng(cookie.position)))
+      break;
+    case 'you':
+      get('you').style = "display: inherit;"
+      get('you-status').innerHTML = "Du är en " + (cookie.agent === "helper" ? 'HJÄLPARE' : 'HJÄLPEE') + " (röda cirkeln). Tryck på röda cirkeln för att ta bort"
       break;
   }
 }
