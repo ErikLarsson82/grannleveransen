@@ -4,11 +4,8 @@
 	<title>Grannleveransen</title>
 	<script src="grannleveransen.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOxsbI1PYUHS7iDMIQuivzYrWxxQFo9FQ&libraries=drawing&callback=initMap" async defer></script>
-<<<<<<< HEAD
 	<link rel="stylesheet" type="text/css" href="style.css">
-=======
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
->>>>>>> 600b0bcfc84df7ca24e8cf7e6e2258f4568c4d10
 	<style>
 
 		body {
@@ -61,13 +58,6 @@
 	</style>
 </head>
 <body>
-<<<<<<< HEAD
-<img alt="logo" class="logo" src="images/grannleveransen-logo.png"><br>
-Hello World Isolations-Hjälpen Sverige!<br><br>
-<a href="https://www.guaana.com/challenge/oKDiham57QdtpzZcn/results/hLMyjWXBH675rb3qC/dY8yzBcWi86cKnzBd/main">https://www.guaana.com/challenge/oKDiham57QdtpzZcn/results/hLMyjWXBH675rb3qC/dY8yzBcWi86cKnzBd/main</a><br><br>
-<a href="https://github.com/ErikLarsson82/isolations-hjalpen">https://github.com/ErikLarsson82/isolations-hjalpen</a><br><br>
-<input type="button" value="Rensa ALLA markeringar för alla" onClick="clearAll()"><br><br>
-=======
 <img src="images/grannleveransen-logo.png" width="100"><br>
 <h1>Välkommen till <i>grannleveransen</i></h1>
 <p>Vi matchar ihop dig som behöver hjälp eftersom du är isolerad hemma under Coronakrisen med dig som kan hjälpa till med att handla eller leveranser.</p>
@@ -98,7 +88,13 @@ Hello World Isolations-Hjälpen Sverige!<br><br>
 		<p>[ Väntar på förfrågan ... ]</p>
 	</div>
 </div>
->>>>>>> 600b0bcfc84df7ca24e8cf7e6e2258f4568c4d10
+<div id="menu-helpee" class="box" style="display: inherit;">
+	<h3>Klicka på en hjälpare nära dig</h3>
+	<div class="menu-helper">
+		<p>Dra och släpp den lila markören på kartan. Du väljer ett område och inte din exakta position så du kan känna dig anonym.</p>
+		<input type="button" value="Skicka min position" onClick="setState('helper-done')">
+	</div>
+</div>
 <div id="map"></div>
 
 <h2>Admin</h2>
