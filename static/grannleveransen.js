@@ -1,14 +1,20 @@
 
 const RADIUS = 600
 
-let map, marker
-
-let pos = {
-  lat: 59.349142465871864,
-  lng: 18.07889355468749
+const colors = {
+  "helper": "#13bf41",
+  "helper-active": "#b71bde",
+  "helpee": "#187ddb",
+  "helpee-active": "#cc8916"
 }
 
+let map, marker, agent, pos
+
 function initMap() {
+  pos = {
+    lat: 59.349142465871864,
+    lng: 18.07889355468749
+  }
 
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
@@ -17,29 +23,14 @@ function initMap() {
   })
 
   fetch('./helper-list')
-    .then(res => res.json())
-    .then(helpers => {
-      helpers.forEach(helper => {
-        new google.maps.Circle({
-          strokeColor: '#00c4ff',
-          strokeOpacity: 0.8,
-          strokeWeight: 2,
-          fillColor: '#00c4ff',
-          fillOpacity: 0.35,
-          map: map,
-          center: helper.position,
-          radius: RADIUS * 1.1,
-          zIndex: 1
-        });
-      })
-    })
-
-  
+    .then( res => res.json() )
+    .then( helpers => helpers.forEach(drawCircle) )  
 }
 
-function submitMyself() {
+function submitPosition() {
   const payload = {
-    position: pos
+    position: pos,
+    agent: agent
   }
 
   const config = {
@@ -52,16 +43,8 @@ function submitMyself() {
   return fetch('./helper', config)
     .then(() => {
       marker.setMap(null);
-      var cityCircle = new google.maps.Circle({
-        strokeColor: '#55c400',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: '#55c400',
-        fillOpacity: 0.35,
-        map: map,
-        center: pos,
-        radius: RADIUS
-      });
+      
+      drawCircle({ position: pos, agent: agent })
     })
 }
 
@@ -73,37 +56,66 @@ function get(id) {
   return document.getElementById(id)
 }
 
+function drawCircle({ position, agent }) {
+  new google.maps.Circle({
+    strokeColor: colors[agent],
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: colors[agent],
+    fillOpacity: 0.35,
+    map: map,
+    center: position,
+    radius: RADIUS * 1.1,
+    zIndex: 1
+  });
+}
+
+function createDraggableMarker() {
+  marker = new google.maps.Circle({
+    strokeColor: colors[`${agent}-active`],
+    strokeOpacity: 0.8,
+    strokeWeight: 2,
+    fillColor: colors[`${agent}-active`],
+    fillOpacity: 0.35,
+    map: map,
+    draggable: true,
+    center: pos,
+    radius: RADIUS,
+    zIndex: 2
+  });
+
+  google.maps.event.addListener(marker, 'dragend', function(e) {
+    pos = {
+      lat: e.latLng.lat(),
+      lng: e.latLng.lng()
+    }
+    console.log(pos)
+  });
+}
+
 function setState(s) {
   switch(s) {
     case 'helper':
+      agent = 'helper'
       get('menu-main').style = "display: none;"
       get('menu-helper').style = "display: inherit;"
-      
-      marker = new google.maps.Circle({
-        strokeColor: '#b90ed8',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: '#b90ed8',
-        fillOpacity: 0.35,
-        map: map,
-        draggable: true,
-        center: pos,
-        radius: RADIUS,
-        zIndex: 2
-      });
-
-      google.maps.event.addListener(marker, 'dragend', function(e) {
-        pos = {
-          lat: e.latLng.lat(),
-          lng: e.latLng.lng()
-        }
-        console.log(pos)
-      });
+      createDraggableMarker()
       break;
     case 'helper-done':
-      submitMyself()
+      submitPosition()
       get('menu-helper-done').style = "display: inherit;"
       get('menu-helper').style = "display: none;"
+      break;
+    case 'helpee':
+      agent = 'helpee'
+      get('menu-main').style = "display: none;"
+      get('menu-helpee').style = "display: inherit;"
+      createDraggableMarker()
+      break;
+    case 'helpee-done':
+      submitPosition()
+      get('menu-helpee-done').style = "display: inherit;"
+      get('menu-helpee').style = "display: none;"
       break;
   }
 }

@@ -28,8 +28,8 @@
 <div id="menu-helper" class="box" style="display: none;">
 	<h3>Välj var du befinner dig på kartan</h3>
 	<div class="menu-helper">
-		<p>Dra och släpp den lila markören på kartan. Du väljer ett område och inte din exakta position så du kan känna dig anonym.</p>
-		<input type="button" value="Skicka min position" onClick="setState('helper-done')">
+		<p>Dra och släpp den lila markören på kartan. Du väljer ett område och inte din exakta position så att du kan känna dig trygg och anonym.</p>
+		<input type="button" value="Anmäl mig som hjälpare på denna position" onClick="setState('helper-done')">
 	</div>
 </div>
 <div id="menu-helper-done" class="box hidden">
@@ -42,8 +42,14 @@
 <div id="menu-helpee" class="box hidden">
 	<h3>Klicka på en hjälpare nära dig</h3>
 	<div class="menu-helper">
-		<p>Dra och släpp den lila markören på kartan. Du väljer ett område och inte din exakta position så du kan känna dig anonym.</p>
-		<input type="button" value="Skicka min position" onClick="setState('helper-done')">
+		<p>Dra och släpp markören på kartan. Du väljer ett område och inte din exakta position så att du kan känna dig trygg och anonym.</p>
+		<input type="button" value="Bekräfta position" onClick="setState('helpee-done')">
+	</div>
+</div>
+<div id="menu-helpee-done" class="box hidden">
+	<h3>Försök att hitta hjälpare nära dig</h3>
+	<div class="menu-helper">
+		<p>Klicka på hjälpare (de blå cirklarna) för att initiera en kontakt och fråga om hjälp.</p>
 	</div>
 </div>
 <div id="map"></div>

@@ -27,10 +27,11 @@ app.listen(port, () => console.log(`App grannhjalpen.se listening at http://loca
 
 /* API to create a new helper */
 function helper(request, response)  {  
-  const { position } = request.body
+  const { position, agent } = request.body
   
   helpers.push({
-  	position: position
+  	position: position,
+  	agent: agent
   })
 
   response.status(200).send()
