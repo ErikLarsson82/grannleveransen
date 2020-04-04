@@ -14,7 +14,10 @@ app.use(express.static('static'))
 
 /* 	Serve the image folder /static/images
 	/static/images/img.png -> oursite.com/images/img.png */
-app.use("/images", express.static('static/images'))
+app.use('/images', express.static('static/images'))
+
+// Serve specifically node_modules js-cookie
+app.use('/js.cookie.js', express.static('./node_modules/js-cookie/src/js.cookie.js'))
 
 /*	Use node module body-parser to be able to read request.body in the request handlers */
 app.use(bodyParser.urlencoded({ extended: false }))
@@ -26,7 +29,7 @@ app.get('/helper-list', helperList)
 app.get('/clear', clear)
 
 /* Start the server */
-app.listen(port, () => console.log(`App grannhjalpen.se listening at http://localhost:${port}`))
+app.listen(port, () => console.log(`App grannleveransen.se listening at http://localhost:${port}`))
 
 
 /* API to create a new helper */

@@ -8,9 +8,10 @@ const colors = {
   "helpee-active": "#cc8916"
 }
 
-let map, marker, agent, pos
+let map, marker, agent, pos, circles, selectedCircle, whereAmI
 
 function initMap() {
+  
   pos = {
     lat: 59.349142465871864,
     lng: 18.07889355468749
@@ -24,10 +25,13 @@ function initMap() {
 
   fetch('./helper-list')
     .then( res => res.json() )
-    .then( helpers => helpers.forEach(drawCircle) )  
+    .then( helpers => {
+      circles = helpers.map(createCircle)
+    })  
 }
 
 function submitPosition() {
+  
   const payload = {
     position: pos,
     agent: agent
@@ -44,7 +48,7 @@ function submitPosition() {
     .then(() => {
       marker.setMap(null);
       
-      drawCircle({ position: pos, agent: agent })
+      createCircle({ position: pos, agent: agent })
     })
 }
 
@@ -56,8 +60,8 @@ function get(id) {
   return document.getElementById(id)
 }
 
-function drawCircle({ position, agent }) {
-  new google.maps.Circle({
+function createCircle({ position, agent }) {
+  const c = new google.maps.Circle({
     strokeColor: colors[agent],
     strokeOpacity: 0.8,
     strokeWeight: 2,
@@ -67,7 +71,12 @@ function drawCircle({ position, agent }) {
     center: position,
     radius: RADIUS * 1.1,
     zIndex: 1
-  });
+  })
+  google.maps.event.addListener(c, 'click', function(e) {
+    console.log(e)
+    console.log(google.maps.geometry.spherical.computeDistanceBetween(toLatLng(whereAmI), e.latLng))
+  })
+  return c
 }
 
 function createDraggableMarker() {
@@ -85,12 +94,20 @@ function createDraggableMarker() {
   });
 
   google.maps.event.addListener(marker, 'dragend', function(e) {
-    pos = {
-      lat: e.latLng.lat(),
-      lng: e.latLng.lng()
-    }
-    console.log(pos)
-  });
+    pos = getLatLng(e)
+    whereAmI = pos
+  })
+}
+
+function getLatLng(e) {
+  return {
+    lat: e.latLng.lat(),
+    lng: e.latLng.lng()
+  }
+}
+
+function toLatLng(e) {
+  return new google.maps.LatLng(e.lat, e.lng)
 }
 
 function setState(s) {
