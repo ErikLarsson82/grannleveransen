@@ -8,9 +8,10 @@
 	<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
-<img src="images/grannleveransen-logo.png" width="100"><br>
-<h1>Välkommen till <i>grannleveransen</i></h1>
-<p>Vi matchar ihop dig som behöver hjälp eftersom du är isolerad hemma under Coronakrisen med dig som kan hjälpa till med att handla eller leveranser.</p>
+<img alt="logo" class="logo" src="images/grannleveransen-logo.png"><br>
+<hr class="main-hum-hum">
+<h1 class="welcome-message">Välkommen till <i>grannleveransen.se</i></h1>
+<p class="welcome-message">Vi matchar ihop dig som behöver hjälp eftersom du är isolerad hemma under Coronakrisen med dig som kan hjälpa till med att handla eller leveranser.</p>
 <div id="menu-main" class="box">
 	<h3>Välj vem du är</h3>
 	<div class="menu-main">
@@ -31,14 +32,14 @@
 		<input type="button" value="Skicka min position" onClick="setState('helper-done')">
 	</div>
 </div>
-<div id="menu-helper-done" class="box" style="display: none;">
+<div id="menu-helper-done" class="box hidden">
 	<h3>Tack för ditt bidrag!</h3>
 	<div class="menu-helper-done">
 		<p>Om någon ber dig om hjälp kommer det att dyka upp här. Då kommer den som ber om hjälp att beskriva hur du kan kontakta denne</p>
 		<p>[ Väntar på förfrågan ... ]</p>
 	</div>
 </div>
-<div id="menu-helpee" class="box" style="display: inherit;">
+<div id="menu-helpee" class="box hidden">
 	<h3>Klicka på en hjälpare nära dig</h3>
 	<div class="menu-helper">
 		<p>Dra och släpp den lila markören på kartan. Du väljer ett område och inte din exakta position så du kan känna dig anonym.</p>

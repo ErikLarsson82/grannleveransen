@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Admin - login</title>
+	<script type="text/javascript">
+		var objPeople = [
+  {
+    username: "Admin",
+    password: "Admin"
+  }
+]
+
+function getInfo() {
+	var username = document.getElementById('username').value
+	var password = document.getElementById('password').value
+
+	for(var i = 0; i < objPeople.length; i++) {
+		// check is user input matches username and password of a current index of the objPeople array
+		if(username == objPeople[i].username && password == objPeople[i].password) {
+			window.alert("Välkommen" + " " + username)
+      window.location=(username + "." + "idontknow" + "." + password + ".html")
+			// stop the function if this is found to be true
+			return
+		}
+	}
+	window.alert("Fel Användarnamn eller Lösenord")
+}
+
+
+	</script>
+</head>
+<body>
+</body>
+</html>
