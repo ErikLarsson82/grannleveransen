@@ -11,7 +11,7 @@ let pos = {
 function initMap() {
 
   map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 10,
+    zoom: 13,
     center: pos,
     mapTypeId: 'terrain'
   })
@@ -20,7 +20,7 @@ function initMap() {
     .then(res => res.json())
     .then(helpers => {
       helpers.forEach(helper => {
-        var cityCircle = new google.maps.Circle({
+        new google.maps.Circle({
           strokeColor: '#00c4ff',
           strokeOpacity: 0.8,
           strokeWeight: 2,
@@ -28,30 +28,10 @@ function initMap() {
           fillOpacity: 0.35,
           map: map,
           center: helper.position,
-          radius: RADIUS
+          radius: RADIUS * 1.1,
+          zIndex: 1
         });
-      })    
-
-      marker = new google.maps.Circle({
-        strokeColor: '#b90ed8',
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: '#b90ed8',
-        fillOpacity: 0.35,
-        map: map,
-        draggable: true,
-        center: pos,
-        radius: RADIUS
-      });
-
-      google.maps.event.addListener(marker, 'dragend', function(e) {
-        pos = {
-          lat: e.latLng.lat(),
-          lng: e.latLng.lng()
-        }
-        console.log(pos)
-      });
-
+      })
     })
 
   
@@ -69,13 +49,14 @@ function submitMyself() {
     },
     body: JSON.stringify(payload)
   }
-  fetch('./helper', config)
+  return fetch('./helper', config)
     .then(() => {
+      marker.setMap(null);
       var cityCircle = new google.maps.Circle({
-        strokeColor: '#00c4ff',
+        strokeColor: '#55c400',
         strokeOpacity: 0.8,
         strokeWeight: 2,
-        fillColor: '#00c4ff',
+        fillColor: '#55c400',
         fillOpacity: 0.35,
         map: map,
         center: pos,
@@ -86,4 +67,43 @@ function submitMyself() {
 
 function clearAll() {
   fetch('./clear')
+}
+
+function get(id) {
+  return document.getElementById(id)
+}
+
+function setState(s) {
+  switch(s) {
+    case 'helper':
+      get('menu-main').style = "display: none;"
+      get('menu-helper').style = "display: inherit;"
+      
+      marker = new google.maps.Circle({
+        strokeColor: '#b90ed8',
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: '#b90ed8',
+        fillOpacity: 0.35,
+        map: map,
+        draggable: true,
+        center: pos,
+        radius: RADIUS,
+        zIndex: 2
+      });
+
+      google.maps.event.addListener(marker, 'dragend', function(e) {
+        pos = {
+          lat: e.latLng.lat(),
+          lng: e.latLng.lng()
+        }
+        console.log(pos)
+      });
+      break;
+    case 'helper-done':
+      submitMyself()
+      get('menu-helper-done').style = "display: inherit;"
+      get('menu-helper').style = "display: none;"
+      break;
+  }
 }
