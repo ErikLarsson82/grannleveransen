@@ -10,7 +10,7 @@ class SearchmatchNeeder extends React.Component {
   componentDidMount() {
     this.timeout = setTimeout(() => {
       this.props.setView('FOUNDLISTOFMATCHES-NEEDER')
-    }, 2000)
+    }, 10000)
   }
   componentWillUnmount() {
     this.clear()
@@ -25,7 +25,7 @@ class SearchmatchNeeder extends React.Component {
         <img src='images/grannleveransen-logo.png' className="App-logo" alt="logo" />
         <h1>grannleveransen.se</h1>
         <h3>SEARCHMATCH-NEEDER</h3>
-        <p>Letar matcher.... detta kommer att ta ca 5 sekunder</p>
+        <p>Letar matcher.... detta kommer att ta ca 10 sekunder</p>
         <div className="button-holder">
           <Button variant="contained" color="primary" onClick={() => { this.clear(); setView('WELCOME-NEEDER') }}>
             Avbryt
