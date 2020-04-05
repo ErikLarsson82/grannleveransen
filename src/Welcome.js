@@ -21,11 +21,13 @@ function Welcome(props) {
       <div className="button-holder">
         <Link to='helper/createuser'>
           <Button variant="contained" color="primary">
+            <img alt="lifebuoy" src="images/lifebuoy-icon.png" />
             Hjälpare
           </Button>
         </Link>
         <Link to='needer/createuser'>
           <Button variant="contained" color="primary">
+            <img alt="helping-hand" src="images/helping-hand-icon.png" />
             Jag behöver hjälp
           </Button>
         </Link>
