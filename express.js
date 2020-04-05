@@ -20,6 +20,12 @@ app.use('/static', express.static('build/static'))
 // Serve specifically node_modules js-cookie
 //app.use('/js.cookie.js', express.static('./node_modules/js-cookie/src/js.cookie.js'))
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000")
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+  next()
+})
+
 /*	Use node module body-parser to be able to read request.body in the request handlers */
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
