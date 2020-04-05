@@ -27,12 +27,6 @@
   border-radius: 100px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 35s linear;
-  }
-}
-
 .App-content {
   background-color: #282c34;
   min-height: 100vh;
@@ -75,6 +69,7 @@ h3 {
 }
 
 .button-holder {
+  padding: 5px; 
   display: flex;
   justify-content: space-around;
 }
