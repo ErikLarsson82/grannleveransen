@@ -17,7 +17,7 @@ function Welcome(props) {
   return (
     <div>
       <h2>Välkommen ny användare</h2>
-      <p>Vem är du?</p>
+      <p class="who">Vem är du?</p>
       <div className="button-holder">
         <Link to='helper/createuser'>
           <Button variant="contained" color="primary">
