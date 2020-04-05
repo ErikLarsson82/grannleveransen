@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Welcome from './Welcome';
 import WelcomeHelper from './WelcomeHelper';
 import WelcomeNeeder from './WelcomeNeeder';
@@ -14,8 +14,9 @@ import './App.css';
 import cookie from 'js-cookie';
 
 window.test = cookie
+const Component404 = () => <div>404</div>
 
-function App() {
+function App(props) {
   return (
     <Router>
       <div className="App">
@@ -31,6 +32,7 @@ function App() {
             <Route path="/needer/searchmatch" exact component={SearchmatchNeeder} />
             <Route path="/needer/foundlistofmatches" exact component={FoundListOfMatchesNeeder} />
             <Route path="/needer/goodsreceived" exact component={GoodsReceivedNeeder} />
+            <Route path="/" component={Component404} />
           </Switch>
         </content>
       </div>

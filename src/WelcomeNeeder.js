@@ -1,11 +1,13 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import cookie from 'js-cookie';
 
 function WelcomeNeeder(props) {
   
   function removeuser() {
-    console.log('remove user')
+    cookie.remove('me')
+    props.history.push('/')
   }
 
   return (
