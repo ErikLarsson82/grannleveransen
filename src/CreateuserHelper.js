@@ -6,7 +6,7 @@ import colors from './colors'
 
 let pos
 
-const RADIUS = 600
+const RADIUS = 400
 
 function getLatLng(e) {
   return {

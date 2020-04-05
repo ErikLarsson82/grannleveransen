@@ -6,6 +6,10 @@ import colors from './colors'
 
 const RADIUS = 600
 
+function toLatLng(google, e) {
+  return new google.maps.LatLng(e.lat, e.lng)
+}
+
 function DahboardHelper(props) {
   const ref = React.createRef()
   const selectedMarker = React.createRef()
@@ -21,6 +25,8 @@ function DahboardHelper(props) {
     
     window.initMap = function() {
       
+      const me = cookie.getJSON('me')
+
       fetch('http://localhost:1337/helper-list')
         .then( res => res.json() )
         .then( helpers => {
@@ -37,8 +43,15 @@ function DahboardHelper(props) {
             center: pos,
             mapTypeId: 'terrain'
           })
+
+          var myMarker = new google.maps.Marker({
+            position: toLatLng(google, me.position),
+            map: map,
+            title: 'Det här är du'
+          });
           
-          helpers.map(x => createCircle(google, map, setSelected, x))
+          helpers.filter(x => x.agent === "NEEDER")
+            .map(x => createCircle(google, map, setSelected, x))
         })
     }
 
