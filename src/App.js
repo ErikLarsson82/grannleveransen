@@ -8,12 +8,37 @@ import SearchmatchNeeder from './SearchmatchNeeder';
 import FoundNoMatchNeeder from './FoundNoMatchNeeder';
 import FoundListOfMatchesNeeder from './FoundListOfMatchesNeeder';
 import GoodsReceivedNeeder from './GoodsReceivedNeeder';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 import './App.css';
 import cookie from 'js-cookie';
 
 window.test = cookie
 
-class App extends React.Component {
+function App() {
+  return (
+    <Router>
+      <div className="App">
+        <Link to='/'>
+          <img src='/images/grannleveransen-logo.png' className="App-logo" alt="logo" />
+        </Link>
+        <content className="App-content"> 
+        <h1>grannleveransen.se</h1>
+          <Switch>
+            <Route path="/" exact component={Welcome} />
+            <Route path="/needer/createuser" exact component={CreateuserNeeder} />
+            <Route path="/needer/welcome" exact component={WelcomeNeeder} />
+            <Route path="/needer/searchmatch" exact component={SearchmatchNeeder} />
+            <Route path="/needer/foundlistofmatches" exact component={FoundListOfMatchesNeeder} />
+            <Route path="/needer/goodsreceived" exact component={GoodsReceivedNeeder} />
+          </Switch>
+        </content>
+      </div>
+    </Router>
+  )
+}
+
+class App2 extends React.Component {
   constructor(props) {
     super(props)
 

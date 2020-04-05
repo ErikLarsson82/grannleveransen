@@ -1,12 +1,15 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 function WelcomeNeeder(props) {
-  const { setView, removeuser } = props
+  
+  function removeuser() {
+    console.log('remove user')
+  }
+
   return (
-    <header className="App-header helpee">
-      <img src='images/grannleveransen-logo.png' className="App-logo" alt="logo" />
-      <h1>grannleveransen.se</h1>
+    <div>
       <h3>WELCOME-NEEDER</h3>
       <p>Välkommen tillbaka <span className="needer">NEEDER</span></p>
       <p>Tryck nedan för att påbörja sökning</p>
@@ -14,11 +17,13 @@ function WelcomeNeeder(props) {
         <Button variant="contained" color="primary" onClick={removeuser}>
           Ta bort användare
         </Button>
-        <Button variant="contained" color="primary" onClick={() => setView('SEARCHMATCH-NEEDER')}>
-          Sök matchning
-        </Button>
+        <Link to='/needer/searchmatch'>
+          <Button variant="contained" color="primary">
+            Sök matchning
+          </Button>
+        </Link>
       </div>
-    </header>
+    </div>
   )
 }
 

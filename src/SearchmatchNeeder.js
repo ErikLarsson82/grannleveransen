@@ -1,15 +1,17 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 class SearchmatchNeeder extends React.Component {
   constructor(props) {
     super(props)
 
-    this.clear = this.clear.bind(this)
+    //this.clear = this.clear.bind(this)
   }
-  componentDidMount() {
+  /*componentDidMount() {
     this.timeout = setTimeout(() => {
-      this.props.setView('FOUNDLISTOFMATCHES-NEEDER')
+      //this.props.setView('FOUNDLISTOFMATCHES-NEEDER')
+      console.log('goto found list')
     }, 10000)
   }
   componentWillUnmount() {
@@ -17,27 +19,30 @@ class SearchmatchNeeder extends React.Component {
   }
   clear() {
     clearTimeout(this.timeout)
-  }
+  }*/
   render() {
-    const { setView } = this.props
     return (
-      <header className="App-header helpee">
-        <img src='images/grannleveransen-logo.png' className="App-logo" alt="logo" />
-        <h1>grannleveransen.se</h1>
+      <div>
         <h3>SEARCHMATCH-NEEDER</h3>
         <p>Letar matcher.... detta kommer att ta ca 10 sekunder</p>
         <div className="button-holder">
-          <Button variant="contained" color="primary" onClick={() => { this.clear(); setView('WELCOME-NEEDER') }}>
-            Avbryt
-          </Button>
-          <Button variant="contained" color="primary" onClick={() => { this.clear(); setView('FOUNDNOMATCH-NEEDER') }}>
-            Debug: Ingen match
-          </Button>
-          <Button variant="contained" color="primary" onClick={() => { this.clear(); setView('FOUNDLISTOFMATCHES-NEEDER') }}>
-            Debug: Hitta match direkt
-          </Button>
+          <Link to='/needer/welcome'>
+            <Button variant="contained" color="primary">
+              Avbryt
+            </Button>
+          </Link>
+          <Link to='/needer/foundnomatch'>
+            <Button variant="contained" color="primary">
+              Debug: Ingen match
+            </Button>
+          </Link>
+          <Link to='/needer/foundlistofmatches'>
+            <Button variant="contained" color="primary">
+              Debug: Hitta match direkt
+            </Button>
+          </Link>
         </div>
-      </header>
+      </div>
     )
   }
 }

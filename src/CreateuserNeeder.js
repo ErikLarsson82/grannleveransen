@@ -1,23 +1,32 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
+import { Link, withRouter } from 'react-router-dom';
+import cookie from 'js-cookie';
 
 function CreateuserNeeder(props) {
-  const { setView, createuser } = props
+  
+  function createUser() {
+    cookie.set('me', { position: 'kurt', agent: 'NEEDER' })    
+  }
+
   return (
-    <header className="App-header">
-      <img src='images/grannleveransen-logo.png' className="App-logo" alt="logo" />
+    <div>
       <h1>Skapa användare - <span className="needer">NEEDER</span></h1>
       <h3>CREATEUSER-NEEDER</h3>
       <p>Tryck här för att skapa</p>
       <div className="button-holder">
-        <Button variant="contained" color="primary" onClick={() => setView('WELCOME')}>
-          Gå tillbaka
-        </Button>
-        <Button variant="contained" color="primary" onClick={() => createuser('NEEDER')}>
-          Skapa användare (kaka) - Needer
-        </Button>
+        <Link to='/'>
+          <Button variant="contained" color="primary">
+            Gå tillbaka
+          </Button>
+        </Link>
+        <Link to='/needer/welcome'>
+          <Button variant="contained" color="primary" onClick={createUser}>
+            Skapa användare (kaka) - Needer
+          </Button>
+        </Link>
       </div>
-    </header>
+    </div>
   )
 }
 

@@ -1,22 +1,25 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
 
 function Welcome(props) {
-  const { setView } = props
   return (
-    <header className="App-header">
-      <img src='images/grannleveransen-logo.png' className="App-logo" alt="logo" />
-      <h1>Välkommen till grannleveransen.se</h1>
+    <div>
+      <h2>Välkommen ny användare</h2>
       <p>Vem är du?</p>
       <div className="button-holder">
-        <Button variant="contained" color="primary" onClick={() => setView('CREATEUSER-HELPER')}>
-          Hjälpare
-        </Button>
-        <Button variant="contained" color="primary" onClick={() => setView('CREATEUSER-NEEDER')}>
-          Jag behöver hjälp
-        </Button>
+        <Link to='helper/createuser'>
+          <Button variant="contained" color="primary">
+            Hjälpare
+          </Button>
+        </Link>
+        <Link to='needer/createuser'>
+          <Button variant="contained" color="primary">
+            Jag behöver hjälp
+          </Button>
+        </Link>
       </div>
-    </header>
+    </div>
   )
 }
 
