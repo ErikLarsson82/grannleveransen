@@ -3,15 +3,13 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import cookie from 'js-cookie';
 
-function EstablishContantHelper(props) {
+function ContactFound(props) {
 
   return (
     <div>
-      <h3>ESTABLISHCONTACT-HELPER</h3>
-      <p>Etablerar kontakt med den du ska hjälpa....</p>
-      <p>Här får du tex ett telefonnummer</p>
+      <p>Elsa har kontaktat dig, hennes telefonnummer är 073-1337 1337</p>
       <div className="button-holder">
-        <Link to='/helper/contactfound'>
+        <Link to='/'>
           <Button variant="contained" color="primary">
             Klar
           </Button>
@@ -21,4 +19,4 @@ function EstablishContantHelper(props) {
   )
 }
 
-export default EstablishContantHelper
+export default ContactFound

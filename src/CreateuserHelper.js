@@ -82,7 +82,7 @@ function CreateuserHelper(props) {
             Gå tillbaka
           </Button>
         </Link>
-        <Link to='/helper/welcome'>
+        <Link to='/helper/dashboardhelper'>
           <Button variant="contained" color="primary" onClick={createUser}>
             Skapa användare (kaka) - Hjälpare
           </Button>

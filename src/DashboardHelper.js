@@ -17,10 +17,15 @@ function toLatLng(google, e) {
   return new google.maps.LatLng(e.lat, e.lng)
 }
 
-function FoundListOfMatchesHelper() {
+function DahboardHelper(props) {
   const ref = React.createRef()
 
   const [ selected, setSelected ] = useState(null)
+
+  function removeuser() {
+    cookie.remove('me')
+    props.history.push('/')
+  }
 
   useEffect(() => {
     
@@ -72,13 +77,17 @@ function FoundListOfMatchesHelper() {
     </div>
   )
   
+  const Help = () => selected === null && (
+    <p>Välj en blå cirkel nedan - det är någon som behöver din hjälp!</p>
+  )
   return (
     <div>
-      <h3>FOUNDLISTOFMATCHES-HELPER</h3>
+      <h1>Välkommen <span className="helper">HJÄLPARE</span></h1>
+      <Help />
       <div className="button-holder">
-        <Link to='/helper/welcome'>
-          <Button variant="contained" color="primary">
-            Tillbaka till start
+        <Link to='/'>
+          <Button variant="contained" color="primary" onClick={removeuser}>
+            Gå tillbaka
           </Button>
         </Link>
         <Info />
@@ -112,4 +121,4 @@ function km() {
   return "13 km"
 }
 
-export default FoundListOfMatchesHelper
+export default DahboardHelper

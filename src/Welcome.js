@@ -11,7 +11,7 @@ function Welcome(props) {
       props.history.push('needer/welcome')
     }
     if (c.agent === 'HELPER') {
-      props.history.push('helper/welcome')
+      props.history.push('helper/dashboardhelper')
     }
   })
   return (

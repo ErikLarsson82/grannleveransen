@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 function FoundListOfMatchesNeeder() {
   return (
     <div>
-      <h3>FOUNDLISTOFMATCHES-NEEDER</h3>
       <p>Här ser du de kandidater vi hittat som normalt levererar den här typen av varor i din region, Elsa. Är det någon du speciellt föredrar så markera detta i listan nedan:</p>
       <p>Namn - Betyg - Senast levererat</p>
       <p>Anders Persson - 5.0 - Maj 2020</p>

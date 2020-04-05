@@ -78,7 +78,7 @@ function CreateuserNeeder(props) {
 
   return (
     <div>
-      <h1>Skapa användare - <span className="needer">NEEDER</span></h1>
+      <h1>Skapa användare - <span className="needer">MOTTAGARE</span></h1>
       <h3>CREATEUSER-NEEDER</h3>
       <p>Dra och släpp den lila markören på kartan. Du väljer ett område och du behöver inte välja din exakta position så att du kan känna dig trygg och anonym.</p>
       <div className="button-holder">
@@ -89,7 +89,7 @@ function CreateuserNeeder(props) {
         </Link>
         <Link to='/needer/welcome'>
           <Button variant="contained" color="primary" onClick={createUser}>
-            Skapa användare (kaka) - Needer
+            Skapa användare (kaka) - MOTTAGARE
           </Button>
         </Link>
       </div>

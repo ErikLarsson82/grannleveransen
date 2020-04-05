@@ -8,9 +8,10 @@ import SearchmatchNeeder from './SearchmatchNeeder';
 import SearchmatchHelper from './SearchmatchHelper';
 import FoundNoMatchNeeder from './FoundNoMatchNeeder';
 import FoundListOfMatchesNeeder from './FoundListOfMatchesNeeder';
-import FoundListOfMatchesHelper from './FoundListOfMatchesHelper';
+import DashboardHelper from './DashboardHelper';
 import GoodsReceivedNeeder from './GoodsReceivedNeeder';
 import EstablishContactHelper from './EstablishContactHelper';
+import ContactFound from './ContactFound';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './App.css';
@@ -34,14 +35,15 @@ function App(props) {
             <Route path="/needer/createuser" exact component={CreateuserNeeder} />
             <Route path="/needer/welcome" exact component={WelcomeNeeder} />
             <Route path="/needer/searchmatch" exact component={SearchmatchNeeder} />
+            <Route path="/needer/foundnomatch" exact component={FoundNoMatchNeeder} />
             <Route path="/needer/foundlistofmatches" exact component={FoundListOfMatchesNeeder} />
             <Route path="/needer/goodsreceived" exact component={GoodsReceivedNeeder} />
 
             <Route path="/helper/createuser" exact component={CreateuserHelper} />
-            <Route path="/helper/welcome" exact component={WelcomeHelper} />
+            <Route path="/helper/dashboardhelper" exact component={DashboardHelper} />
             <Route path="/helper/searchmatch" exact component={SearchmatchHelper} />
-            <Route path="/helper/foundlistofmatches" exact component={FoundListOfMatchesHelper} />
             <Route path="/helper/establishcontacthelper" exact component={EstablishContactHelper} />
+            <Route path="/helper/contactfound" exact component={ContactFound} />
             
             <Route path="/" component={Component404} />
           </Switch>

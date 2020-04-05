@@ -10,18 +10,35 @@ function WelcomeNeeder(props) {
     props.history.push('/')
   }
 
+  function search() {
+    const me = cookie.getJSON('me')
+    const payload = {
+      position: me.position,
+      agent: me.agent,
+      id: me.id
+    }
+
+    const config = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload)
+    }
+    fetch('http://localhost:1337/helper', config)
+  }
+
   return (
     <div>
-      <h3>WELCOME-NEEDER</h3>
-      <p>Välkommen tillbaka <span className="needer">NEEDER</span></p>
-      <p>Tryck nedan för att påbörja sökning</p>
+      <h1>Välkommen <span className="needer">MOTTAGARE</span></h1>
+      <p>Tryck här för att be om hjälp av andra i ditt område</p>
       <div className="button-holder">
         <Button variant="contained" color="primary" onClick={removeuser}>
           Ta bort användare
         </Button>
         <Link to='/needer/searchmatch'>
-          <Button variant="contained" color="primary">
-            Sök matchning
+          <Button variant="contained" color="primary" onClick={search}>
+            Be om hjälp nu
           </Button>
         </Link>
       </div>
