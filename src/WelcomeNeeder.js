@@ -33,12 +33,10 @@ function WelcomeNeeder(props) {
       <h1>Välkommen <span className="needer">MOTTAGARE</span></h1>
       <p>Tryck här för att be om hjälp av andra i ditt område</p>
       <p>Jag behöver:</p>
-      <div className="smol">
-        <ul>
-          <li>Handla mat</li>
-          <li>Medicin</li>
-        </ul>
-      </div>
+      <ul className="smol">
+        <li>Handla mat</li>
+        <li>Medicin</li>
+      </ul>
       <div className="button-holder">
         <Button classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={removeuser}>
           Ta bort användare
