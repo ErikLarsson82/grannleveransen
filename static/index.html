@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<title>Grannleveransen</title>
+  <meta charset="utf-8">
 	<script src="js.cookie.js"></script>
 	<script src="grannleveransen.js"></script>
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAOxsbI1PYUHS7iDMIQuivzYrWxxQFo9FQ&libraries=drawing&callback=initMap" async defer></script>
@@ -11,17 +12,17 @@
 <body>
 <img alt="logo" class="logo" src="images/grannleveransen-logo.png"><br>
 <hr class="main-hum-hum">
-<h1 class="welcome-message">Välkommen till <i>grannleveransen.se</i></h1>
+<h1 class="welcome-message">Välkommen till <i>grannleveranse.se</i></h1>
 <p class="welcome-message">Vi matchar ihop dig som behöver hjälp eftersom du är isolerad hemma under Coronakrisen med dig som kan hjälpa till med att handla eller leveranser.</p>
 <div id="menu-main" class="box">
 	<h3>Välj vem du är</h3>
 	<div class="menu-main">
 		<span>
-			<img src="images/lifebuoy-icon.png">
+			<img alt="lifebuoy" src="images/lifebuoy-icon.png">
 			<input type="button" value="Hjälpare" onClick="setState('helper')">
 		</span>
 		<span>
-			<img src="images/helping-hand-icon.png">
+			<img alt="helping-hand" src="images/helping-hand-icon.png">
 			<input type="button" value="Jag behöver hjälp" onClick="setState('helpee')">
 		</span>
 	</div>
@@ -29,7 +30,7 @@
 <div id="menu-helper" class="box" style="display: none;">
 	<h3>Välj var du befinner dig på kartan</h3>
 	<div class="menu-helper">
-		<p>Dra och släpp den lila markören på kartan. Du väljer ett område och inte din exakta position så att du kan känna dig trygg och anonym.</p>
+		<p>Dra och släpp den lila markören på kartan. Du väljer ett område och du behöver inte välja din exakta position så att du kan känna dig trygg och anonym.</p>
 		<input type="button" value="Anmäl mig som hjälpare på denna position" onClick="setState('helper-done')">
 	</div>
 </div>
