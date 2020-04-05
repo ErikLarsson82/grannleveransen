@@ -10,14 +10,15 @@ let helpers = []
 
 /* 	Serve the static folder /static/
 	/static/index.html -> oursite.com/index.html */
-app.use(express.static('static'))
+app.use(express.static('build'))
+app.use('/static', express.static('build/static'))
 
 /* 	Serve the image folder /static/images
 	/static/images/img.png -> oursite.com/images/img.png */
-app.use('/images', express.static('static/images'))
+//app.use('/images', express.static('static/images'))
 
 // Serve specifically node_modules js-cookie
-app.use('/js.cookie.js', express.static('./node_modules/js-cookie/src/js.cookie.js'))
+//app.use('/js.cookie.js', express.static('./node_modules/js-cookie/src/js.cookie.js'))
 
 /*	Use node module body-parser to be able to read request.body in the request handlers */
 app.use(bodyParser.urlencoded({ extended: false }))
