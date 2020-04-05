@@ -8,7 +8,8 @@ const RADIUS = 600
 
 function DahboardHelper(props) {
   const ref = React.createRef()
-
+  const selectedMarker = React.createRef()
+  
   const [ selected, setSelected ] = useState(null)
 
   function removeuser() {
@@ -49,6 +50,11 @@ function DahboardHelper(props) {
 
     document.body.appendChild(script);
   }, [])
+
+  useEffect(() => {
+    //console.log('i react whenefer selected changes')
+    //createCircle(google, map, setSelected, x)
+  }, [selected])
 
   function help() {
     //console.log('helping')
@@ -95,13 +101,13 @@ function DahboardHelper(props) {
   )
 }
 
-function createCircle(google, map, setSelected, input) {
+function createCircle(google, map, setSelected, input, color) {
 
   const c = new google.maps.Circle({
-    strokeColor: colors['HELPER'],
+    strokeColor: color || colors['HELPER'],
     strokeOpacity: 0.8,
     strokeWeight: 2,
-    fillColor: colors['HELPER'],
+    fillColor: color || colors['HELPER'],
     fillOpacity: 0.35,
     map: map,
     center: input.position,
@@ -112,6 +118,8 @@ function createCircle(google, map, setSelected, input) {
 
   google.maps.event.addListener(c, 'click', function(e) {
     setSelected(c.customID)
+    //c.strokeColor('red')
+    //console.log(c)
   })
 }
 

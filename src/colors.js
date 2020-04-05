@@ -3,7 +3,7 @@ const colors = {
   //"": "#13bf41",
   "NEEDER-ACTIVE": "#b71bde",
 
-  //"NEEDER": "#187ddb",
+  "HELPER": "#187ddb",
   "HELPER-ACTIVE": "#449900",
   //"you": "#FF0000"
 }
