@@ -21,3 +21,7 @@ $ npm --version
 
 $ git --version
 git version 2.24.0.windows.2
+
+
+## Merged create-react-app
+Find documentation about that here https://github.com/facebook/create-react-app
