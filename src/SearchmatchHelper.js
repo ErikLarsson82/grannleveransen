@@ -10,17 +10,17 @@ function SearchmatchHelper() {
       <p>Letar matcher.... detta kommer att ta ca 10 sekunder</p>
       <div className="button-holder">
         <Link to='/helper/welcome'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Avbryt
           </Button>
         </Link>
         <Link to='/helper/foundnomatch'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Debug: Ingen match
           </Button>
         </Link>
         <Link to='/helper/foundlistofmatches'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Debug: Hitta match direkt
           </Button>
         </Link>

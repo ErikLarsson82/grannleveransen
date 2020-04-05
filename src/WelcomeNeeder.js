@@ -33,11 +33,11 @@ function WelcomeNeeder(props) {
       <h1>Välkommen <span className="needer">MOTTAGARE</span></h1>
       <p>Tryck här för att be om hjälp av andra i ditt område</p>
       <div className="button-holder">
-        <Button variant="contained" color="primary" onClick={removeuser}>
+        <Button classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={removeuser}>
           Ta bort användare
         </Button>
         <Link to='/needer/searchmatch'>
-          <Button variant="contained" color="primary" onClick={search}>
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={search}>
             Be om hjälp nu
           </Button>
         </Link>

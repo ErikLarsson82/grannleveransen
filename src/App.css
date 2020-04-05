@@ -4,6 +4,11 @@
   color: white;
 }
 
+.larger {
+  font-size: 30px;
+  font-weight: 400;
+}
+
 .credit-text-hum {
   padding-top: 200px;
   padding-left: 200px;

@@ -11,7 +11,7 @@ function EstablishContantHelper(props) {
       <p>Här får du tex ett telefonnummer</p>
       <div className="button-holder">
         <Link to='/helper/contactfound'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Klar
           </Button>
         </Link>

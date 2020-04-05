@@ -8,17 +8,17 @@ function SearchmatchNeeder() {
       <p>Vi letar just nu efter personer som kan hjälpa dig i ditt närområde... häng kvar.</p>
       <div className="button-holder">
         <Link to='/needer/welcome'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Avbryt
           </Button>
         </Link>
         <Link to='/needer/foundnomatch'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Debug: Ingen match
           </Button>
         </Link>
         <Link to='/needer/foundlistofmatches'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Debug: Hitta match direkt
           </Button>
         </Link>

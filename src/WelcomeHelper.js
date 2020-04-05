@@ -15,11 +15,11 @@ function WelcomeHelper(props) {
       <h3>WELCOME-HELPER</h3>
       <p>Välkommen tillbaka <span className="helper">HJÄLPARE</span></p>
       <div className="button-holder">
-        <Button variant="contained" color="primary" onClick={removeuser}>
+        <Button classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={removeuser}>
           Ta bort användare
         </Button>
         <Link to='/helper/searchmatch'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Sök matchning
           </Button>
         </Link>

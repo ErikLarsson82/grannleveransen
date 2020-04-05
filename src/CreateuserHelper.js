@@ -74,12 +74,12 @@ function CreateuserHelper(props) {
       <p>Dra och släpp den gröna markören på kartan. Du väljer ett område och du behöver inte välja din exakta position så att du kan känna dig trygg och anonym.</p>
       <div className="button-holder">
         <Link to='/'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Gå tillbaka
           </Button>
         </Link>
         <Link to='/helper/dashboardhelper'>
-          <Button variant="contained" color="primary" onClick={createUser}>
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={createUser}>
             Skapa användare (kaka) - Hjälpare
           </Button>
         </Link>

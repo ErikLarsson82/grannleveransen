@@ -10,7 +10,7 @@ function FoundNoMatchNeeder() {
       <p><a href="www.dn.se">DN.se</a></p>
       <Link to='/needer/welcome'>
         <div className="button-holder">
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Tillbaka
           </Button>
         </div>

@@ -62,7 +62,7 @@ function DahboardHelper(props) {
 
   const HelpButton = () => (
     <Link to='/helper/establishcontacthelper'>
-      <Button variant="contained" color="primary" onClick={help}>
+      <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={help}>
         Hjälp denna person
       </Button>
     </Link>
@@ -87,7 +87,7 @@ function DahboardHelper(props) {
       { selected === null && <HelpText /> }
       <div className="button-holder">
         <Link to='/'>
-          <Button variant="contained" color="primary" onClick={removeuser}>
+          <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={removeuser}>
             Gå tillbaka
           </Button>
         </Link>

@@ -11,12 +11,12 @@ function FoundListOfMatchesNeeder() {
       <p>Pelle Svanslös - 0.2 - Aldrig</p>
       <div className="button-holder">
         <Link to='/needer/welcome'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Tillbaka till start
           </Button>
         </Link>
         <Link to='/needer/goodsreceived'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Välj Anders och få leveransen
           </Button>
         </Link>

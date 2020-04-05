@@ -9,7 +9,7 @@ function ContactFound(props) {
       <p>Elsa har kontaktat dig, hennes telefonnummer är 073-1337 1337</p>
       <div className="button-holder">
         <Link to='/'>
-          <Button variant="contained" color="primary">
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Klar
           </Button>
         </Link>
