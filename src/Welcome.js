@@ -35,7 +35,7 @@ function Welcome(props) {
       <ul class="credit-text-hum">
       <li>Erik Larsson</li>
       <li>Esmond Buswijller</li>
-      <li>Juana Medina</li>
+      <li>Juan Medina</li>
       <li>Richard Bunk</li>
       <li>Megan Gustafsson</li>
       <li>Tim Fredriksson</li>
