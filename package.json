@@ -2,9 +2,9 @@
   "name": "isolations-hjalpen",
   "version": "0.0.2",
   "description": "Hack the Crisis Sweden prototype for matchmaking",
-  "main": "index.js",
+  "main": "express.js",
   "scripts": {
-    "start": "react-scripts build",
+    "start": "react-scripts build && node express.js",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
