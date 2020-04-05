@@ -4,6 +4,21 @@
   color: white;
 }
 
+.credit-text-hum {
+  padding-top: 200px;
+  padding-left: 200px;
+}
+
+.credit-text-hum-hum {
+  padding-top: 100px;
+}
+
+.credits-section {
+  font-size:25px;
+  display: flex;
+  justify-content: flex-start;
+}
+
 .App-logo {
   padding: 20px;
   height: 12vmin;

@@ -30,7 +30,23 @@ function Welcome(props) {
           </Button>
         </Link>
       </div>
-    </div>
+      <div class="credits-section">
+      <h2 class="credit-text-hum-hum">Credits</h2>
+      <ul class="credit-text-hum">
+      <li>Erik Larsson</li>
+      <li>Esmond Buswijller</li>
+      <li>Jmed</li>
+      <li>Richard Bunk</li>
+      <li>Megan Gustafsson</li>
+      <li>Tim Fredriksson</li>
+      <li>Jesper Thörnberg</li>
+      <li>Minna Storm</li>
+      <li>Ravindra Singh</li>
+      <li>Sida Jiang</li>
+      <li>William Samuelsson</li>
+      </ul>
+      </div>
+      </div>
   )
 }
 
