@@ -5,8 +5,11 @@
 }
 
 .App-logo {
-  height: 10vmin;
+  padding: 20px;
+  height: 12vmin;
+  width: 12vmin;
   pointer-events: none;
+  border-radius: 100px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
