@@ -1,18 +1,30 @@
 import React from 'react'
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom';
+import cookie from 'js-cookie';
 
 function WelcomeHelper(props) {
-  const { removeuser } = props
+
+  function removeuser() {
+    cookie.remove('me')
+    props.history.push('/')
+  }
+
   return (
-    <header className="App-header">
-      <img src='images/grannleveransen-logo.png' className="App-logo" alt="logo" />
-      <h1>grannleveransen.se</h1>
+    <div>
       <h3>WELCOME-HELPER</h3>
       <p>Välkommen tillbaka <span className="helper">HJÄLPARE</span></p>
-      <Button variant="contained" color="primary" onClick={removeuser}>
-        Ta bort mig
-      </Button>
-    </header>
+      <div className="button-holder">
+        <Button variant="contained" color="primary" onClick={removeuser}>
+          Ta bort användare
+        </Button>
+        <Link to='/helper/searchmatch'>
+          <Button variant="contained" color="primary">
+            Sök matchning
+          </Button>
+        </Link>
+      </div>
+    </div>
   )
 }
 

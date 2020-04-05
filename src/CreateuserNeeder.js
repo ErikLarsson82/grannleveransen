@@ -1,14 +1,31 @@
 import React, { useEffect, createRef } from 'react'
 import Button from '@material-ui/core/Button';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import cookie from 'js-cookie';
+import colors from './colors'
+
+let pos
+
+const RADIUS = 600
+
+function getLatLng(e) {
+  return {
+    lat: e.latLng.lat(),
+    lng: e.latLng.lng()
+  }
+}
+
+function toLatLng(google, e) {
+  return new google.maps.LatLng(e.lat, e.lng)
+}
+
 
 function CreateuserNeeder(props) {
   
   const ref = React.createRef()
 
   function createUser() {
-    cookie.set('me', { position: 'kurt', agent: 'NEEDER' })    
+    cookie.set('me', { position: pos, agent: 'NEEDER' })    
   }
 
   useEffect(() => {
@@ -17,7 +34,7 @@ function CreateuserNeeder(props) {
       
       const google = window.google
 
-      let pos = {
+      pos = {
         lat: 59.349142465871864,
         lng: 18.07889355468749
       }
@@ -26,6 +43,23 @@ function CreateuserNeeder(props) {
         zoom: 13,
         center: pos,
         mapTypeId: 'terrain'
+      })
+
+      let marker = new google.maps.Circle({
+        strokeColor: colors[`NEEDER-ACTIVE`],
+        strokeOpacity: 0.8,
+        strokeWeight: 2,
+        fillColor: colors[`NEEDER-ACTIVE`],
+        fillOpacity: 0.35,
+        map: map,
+        draggable: true,
+        center: pos,
+        radius: RADIUS,
+        zIndex: 2
+      });
+
+      google.maps.event.addListener(marker, 'dragend', function(e) {
+        pos = getLatLng(e)
       })
     }
 
