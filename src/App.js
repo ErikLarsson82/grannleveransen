@@ -5,9 +5,12 @@ import WelcomeNeeder from './WelcomeNeeder';
 import CreateuserHelper from './CreateuserHelper';
 import CreateuserNeeder from './CreateuserNeeder';
 import SearchmatchNeeder from './SearchmatchNeeder';
+import SearchmatchHelper from './SearchmatchHelper';
 import FoundNoMatchNeeder from './FoundNoMatchNeeder';
 import FoundListOfMatchesNeeder from './FoundListOfMatchesNeeder';
+import FoundListOfMatchesHelper from './FoundListOfMatchesHelper';
 import GoodsReceivedNeeder from './GoodsReceivedNeeder';
+import EstablishContactHelper from './EstablishContactHelper';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
 import './App.css';
@@ -36,6 +39,9 @@ function App(props) {
 
             <Route path="/helper/createuser" exact component={CreateuserHelper} />
             <Route path="/helper/welcome" exact component={WelcomeHelper} />
+            <Route path="/helper/searchmatch" exact component={SearchmatchHelper} />
+            <Route path="/helper/foundlistofmatches" exact component={FoundListOfMatchesHelper} />
+            <Route path="/helper/establishcontacthelper" exact component={EstablishContactHelper} />
             
             <Route path="/" component={Component404} />
           </Switch>

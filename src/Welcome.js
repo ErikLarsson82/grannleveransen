@@ -17,7 +17,7 @@ function Welcome(props) {
   return (
     <div>
       <h2>Välkommen ny användare</h2>
-      <p class="who">Vem är du?</p>
+      <p className="who">Vem är du?</p>
       <div className="button-holder">
         <Link to='helper/createuser'>
           <Button variant="contained" color="primary">
@@ -32,9 +32,9 @@ function Welcome(props) {
           </Button>
         </Link>
       </div>
-      <div class="credits-section">
-      <h2 class="credit-text-hum-hum">Credits</h2>
-      <ul class="credit-text-hum">
+      <div className="credits-section">
+      <h2 className="credit-text-hum-hum">Credits</h2>
+      <ul className="credit-text-hum">
       <li>Erik Larsson</li>
       <li>Esmond Buswijller</li>
       <li>Juan Medina</li>

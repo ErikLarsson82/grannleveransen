@@ -25,7 +25,11 @@ function CreateuserNeeder(props) {
   const ref = React.createRef()
 
   function createUser() {
-    cookie.set('me', { position: pos, agent: 'NEEDER' })    
+    cookie.set('me', {
+      position: pos,
+      agent: 'NEEDER',
+      id: `id-${Math.round(Math.random() * 1000000)}`
+    })    
   }
 
   useEffect(() => {
