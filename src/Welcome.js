@@ -8,12 +8,14 @@ function Welcome(props) {
       <img src='images/grannleveransen-logo.png' className="App-logo" alt="logo" />
       <h1>Välkommen till grannleveransen.se</h1>
       <p>Vem är du?</p>
-      <Button variant="contained" color="primary" onClick={() => setView('CREATEUSER-HELPER')}>
-        Hjälpare
-      </Button>
-      <Button variant="contained" color="primary" onClick={() => setView('CREATEUSER-NEEDER')}>
-        Jag behöver hjälp
-      </Button>
+      <div className="button-holder">
+        <Button variant="contained" color="primary" onClick={() => setView('CREATEUSER-HELPER')}>
+          Hjälpare
+        </Button>
+        <Button variant="contained" color="primary" onClick={() => setView('CREATEUSER-NEEDER')}>
+          Jag behöver hjälp
+        </Button>
+      </div>
     </header>
   )
 }

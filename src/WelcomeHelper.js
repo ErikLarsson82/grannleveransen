@@ -4,9 +4,10 @@ import Button from '@material-ui/core/Button';
 function WelcomeHelper(props) {
   const { removeuser } = props
   return (
-    <header className="App-header helper">
+    <header className="App-header">
       <img src='images/grannleveransen-logo.png' className="App-logo" alt="logo" />
       <h1>grannleveransen.se</h1>
+      <h3>WELCOME-HELPER</h3>
       <p>Välkommen tillbaka <span className="helper">HJÄLPARE</span></p>
       <Button variant="contained" color="primary" onClick={removeuser}>
         Ta bort mig
