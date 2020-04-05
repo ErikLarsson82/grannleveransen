@@ -65,33 +65,42 @@ function DahboardHelper(props) {
     //console.log('helping')
   }
 
-  const Info = () => selected && (
+  const HelpButton = () => (
+    <Link to='/helper/establishcontacthelper'>
+      <Button variant="contained" color="primary" onClick={help}>
+        Hjälp denna person
+      </Button>
+    </Link>
+  )
+  const Info = () => (
     <div>
-      <Link to='/helper/establishcontacthelper'>
-        <Button variant="contained" color="primary" onClick={help}>
-          Hjälp denna person
-        </Button>
-      </Link><br />
+      <br />
       Du har markerat { selected }<br />
       Hen är { km(selected) } ifrån dig
     </div>
   )
   
-  const Help = () => selected === null && (
-    <p>Välj en blå cirkel nedan - det är någon som behöver din hjälp!</p>
+  const HelpText = () => (
+    <p>
+      Välj en blå cirkel nedan - det är någon som behöver din hjälp!
+    </p>
   )
+
   return (
     <div>
       <h1>Välkommen <span className="helper">HJÄLPARE</span></h1>
-      <Help />
+      { selected === null && <HelpText /> }
       <div className="button-holder">
         <Link to='/'>
           <Button variant="contained" color="primary" onClick={removeuser}>
             Gå tillbaka
           </Button>
         </Link>
-        <Info />
+        {
+          selected !== null && <HelpButton />
+        }
       </div>
+      { selected !== null && <Info /> }
       <div ref={ref} id="map" style={ { height: '50vh', margin: '40px' } }></div>
     </div>
   )
