@@ -76,5 +76,5 @@ h3 {
 
 .button-holder {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
