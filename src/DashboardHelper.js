@@ -6,17 +6,6 @@ import colors from './colors'
 
 const RADIUS = 600
 
-function getLatLng(e) {
-  return {
-    lat: e.latLng.lat(),
-    lng: e.latLng.lng()
-  }
-}
-
-function toLatLng(google, e) {
-  return new google.maps.LatLng(e.lat, e.lng)
-}
-
 function DahboardHelper(props) {
   const ref = React.createRef()
 

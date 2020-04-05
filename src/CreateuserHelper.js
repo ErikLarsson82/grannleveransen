@@ -15,12 +15,8 @@ function getLatLng(e) {
   }
 }
 
-function toLatLng(google, e) {
-  return new google.maps.LatLng(e.lat, e.lng)
-}
-
 function CreateuserHelper(props) {
-  const ref = React.createRef()
+  const ref = createRef()
 
   function createUser() {
     cookie.set('me', { position: pos, agent: 'HELPER' })    
