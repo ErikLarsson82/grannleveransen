@@ -11,6 +11,10 @@ h3 {
   margin: 0;
 }
 
+.smol {
+  width: 200px;
+}
+
 .App {
   text-align: center;
   background-color: #768298;
