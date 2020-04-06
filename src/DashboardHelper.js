@@ -29,7 +29,7 @@ function DahboardHelper(props) {
       
       const me = cookie.getJSON('me')
 
-      fetch('http://localhost:1338/needers')
+      fetch('https://grannleveransen-be.herokuapp.com/needers')
         .then( res => res.json() )
         .then( helpers => {
 
@@ -75,7 +75,7 @@ function DahboardHelper(props) {
       },
       body: JSON.stringify({ id: selected.id, message: text })
     }
-    fetch('http://localhost:1338/message', config)
+    fetch('https://grannleveransen-be.herokuapp.com/message', config)
   }
 
   function done(e) {
