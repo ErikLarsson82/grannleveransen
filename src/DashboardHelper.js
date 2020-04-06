@@ -6,6 +6,8 @@ import cookie from 'js-cookie';
 import colors from './colors';
 
 const RADIUS = 600
+const isLocalhost = window.location.host.indexOf("localhost") !== -1
+const API = isLocalhost ? 'http://localhost:1337' : 'https://grannleveransen-be.herokuapp.com'
 
 function toLatLng(google, e) {
   return new google.maps.LatLng(e.lat, e.lng)
@@ -29,7 +31,7 @@ function DahboardHelper(props) {
       
       const me = cookie.getJSON('me')
 
-      fetch('https://grannleveransen-be.herokuapp.com/needers')
+      fetch(API + '/needers')
         .then( res => res.json() )
         .then( helpers => {
 
@@ -75,7 +77,7 @@ function DahboardHelper(props) {
       },
       body: JSON.stringify({ id: selected.id, message: text })
     }
-    fetch('https://grannleveransen-be.herokuapp.com/message', config)
+    fetch(API + '/message', config)
   }
 
   function done(e) {

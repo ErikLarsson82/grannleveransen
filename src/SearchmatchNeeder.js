@@ -7,6 +7,9 @@ function trim(str) {
   return str.slice(1, str.length).slice(0, str.length-2)
 }
 
+const isLocalhost = window.location.host.indexOf("localhost") !== -1
+const API = isLocalhost ? 'ws://localhost:1337' : 'wss://grannleveransen-be.herokuapp.com'
+
 class SearchmatchNeeder extends React.Component {
   constructor(props) {
     super(props)
@@ -15,12 +18,12 @@ class SearchmatchNeeder extends React.Component {
       messages: []
     }
     this.kill = this.kill.bind(this)
+    this.interval = null
   }
   componentDidMount() {
     const me = cookie.getJSON('me')
 
-    const url = 'wss://grannleveransen-be.herokuapp.com'
-    const connection = new WebSocket(url)
+    const connection = new WebSocket(API)
 
     this.connection = connection
      
@@ -43,10 +46,17 @@ class SearchmatchNeeder extends React.Component {
         messages: s.messages.concat({ message: trim(e.data), date: new Date() })
       }))
     }
+
+    this.interval = setInterval(() => {
+      console.log('Heartbeat ping')
+      connection.send("{}")
+    }, 1000 * 20)
   }
 
   componentWillUnmount() {
     this.kill()
+    if (this.interval)
+      clearInterval(this.interval)
   }
 
   kill() {
