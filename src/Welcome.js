@@ -32,6 +32,14 @@ function Welcome(props) {
           </Button>
         </Link>
       </div>
+      <div className="links">
+        <p>
+          Source code at <a href="https://github.com/ErikLarsson82/isolations-hjalpen">https://github.com/ErikLarsson82/isolations-hjalpen</a>
+        </p>
+        <p>
+          Short movie with demo of features <a href="https://www.dropbox.com/s/mtv8wb0m42xeep4/grann-supershort.mp4?dl=0">https://www.dropbox.com/s/mtv8wb0m42xeep4/grann-supershort.mp4?dl=0</a>
+        </p>
+      </div>
       <div className="credits-section">
       <ul className="credit-text-hum">
         <li>Erik Larsson</li>

@@ -25,3 +25,7 @@ git version 2.24.0.windows.2
 
 ## Merged create-react-app
 Find documentation about that here https://github.com/facebook/create-react-app
+
+## Backend repository
+https://github.com/ErikLarsson82/grannleveransen-be
+Deployed at https://grannleveransen-be.herokuapp.com/

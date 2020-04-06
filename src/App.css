@@ -23,6 +23,20 @@ ul {
   list-style-position: outside;
 }
 
+.links {
+  margin-top: 300px;
+}
+
+.links > p {
+  font-size: 20px;
+  color: #656565;
+}
+
+.links > p > a {
+  color: #df60ff;
+  text-decoration: underline;
+}
+
 .App {
   text-align: center;
   background-color: #768298;
@@ -38,8 +52,7 @@ ul {
 .credit-text-hum {
   font-size: 22px;
   color: gray;
-  padding-top: 200px;
-  padding-left: 200px;
+  padding-left: 300px;
 }
 
 .credit-text-hum-hum {
