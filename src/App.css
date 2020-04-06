@@ -156,3 +156,19 @@ hr {
   color: white;
   padding: 14px;
 }
+
+.contact-info {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+}
+
+.contact-info > div > p {
+  padding: 0px;
+  margin-left: 40px;
+}
+
+.contact-inputs {
+  display: flex;
+  flex-direction: column;
+}

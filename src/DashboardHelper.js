@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom';
 import cookie from 'js-cookie';
-import colors from './colors'
+import colors from './colors';
 
 const RADIUS = 600
 
@@ -15,6 +16,7 @@ function DahboardHelper(props) {
   const selectedMarker = React.createRef()
   
   const [ selected, setSelected ] = useState(null)
+  const [ text, setText ] = useState("")
 
   function removeuser() {
     cookie.remove('me')
@@ -65,13 +67,13 @@ function DahboardHelper(props) {
     document.body.appendChild(script);
   }, [])
 
-  function sendHelloMsg() {
+  function sendMessage() {
     const config = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ id: selected.id, message: 'Jag vill hjälpa dig. Mitt nummer är 076-1337 1337. Ring mig.' })
+      body: JSON.stringify({ id: selected.id, message: text })
     }
     fetch('http://localhost:1338/message', config)
   }
@@ -81,29 +83,16 @@ function DahboardHelper(props) {
     setSelected(null)
   }
 
-  const HelpButton = () => (
-    <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={done}>
-      Färdig
-    </Button>
-  )
-  const SendButton = () => (
-    <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={sendHelloMsg}>
-      Skicka msg
-    </Button>
-  )
-  const Info = () => (
-    <div>
-      <br />
-      Du har markerat { selected.id }<br />
-      Hen är { km(selected.id) } ifrån dig<br />
-      Hen har skrivit detta: { selected.message }
-    </div>
-  )
-  
   const HelpText = () => (
     <p>
       Välj en blå cirkel nedan - det är någon som behöver din hjälp!
     </p>
+  )
+
+  const DoneButton = () => (
+    <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={done}>
+      Färdig
+    </Button>
   )
 
   return (
@@ -116,14 +105,24 @@ function DahboardHelper(props) {
             Gå tillbaka
           </Button>
         </Link>
-        {
-          selected !== null && <SendButton />
-        }
-        {
-          selected !== null && <HelpButton />
-        }
+        { selected !== null && <DoneButton />}
       </div>
-      { selected !== null && <Info /> }
+      <div className="contact-info">
+        <div className="contact-inputs">
+          <TextField onChange={ x => setText(x.target.value) } classes={{ 'root': 'input-large' }} id="outlined-basic" label="Här är mitt nummer 076-XXX YYY" />
+          {
+            selected && <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={sendMessage}>
+              Skicka meddelande
+            </Button>
+          }
+
+        </div>
+        <div>
+          <p>Du har markerat { selected && selected.id }</p>
+          <p>Hen är { km(selected && selected.id) } ifrån dig</p>
+          <p>Hen har skrivit detta: { selected && selected.message }</p>
+        </div>
+      </div>
       <div ref={ref} id="map" style={ { height: '50vh', margin: '40px' } }></div>
     </div>
   )
