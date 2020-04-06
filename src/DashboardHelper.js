@@ -108,22 +108,24 @@ function DashboardHelper(props) {
         </Link>
         { selected !== null && <DoneButton />}
       </div>
-      <div className="contact-info">
-        <div className="contact-inputs">
-          <TextField onKeyPress={e => e.key === "Enter" && sendMessage(e)} onChange={ x => setText(x.target.value) } classes={{ 'root': 'input-large' }} id="outlined-basic" label="Här är mitt nummer 076-XXX YYY" value={text} />
-          {
-            selected && <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" class="SendMessage" color="primary" onClick={sendMessage}>
-              Skicka meddelande
-            </Button>
-          }
-
-        </div>
-        <div>
-          <p>Du har markerat { selected && selected.id }</p>
-          <p>Hen är { km(selected && selected.id) } ifrån dig</p>
-          <p>Han/Hon behöver hjälp att { selected && selected.message }</p>
-        </div>
-      </div>
+      {
+        selected && [
+          <hr key="divider" />,
+          <div key="contact-info" className="contact-info">
+            <div className="contact-inputs">
+              <TextField onKeyPress={e => e.key === "Enter" && sendMessage(e)} onChange={ x => setText(x.target.value) } classes={{ 'root': 'input-large' }} id="outlined-basic" label="Här är mitt nummer 076-XXX YYY" value={text} />
+              <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={sendMessage}>
+                Skicka meddelande
+              </Button>
+            </div>
+            <div>
+              <p>Du har markerat { selected && selected.id }</p>
+              <p>Han/Hon är { km(selected && selected.id) } ifrån dig</p>
+              <p>Han/Hon har skrivit detta: { selected && selected.message }</p>
+            </div>
+          </div>
+        ]
+      }
       <div ref={ref} id="map" style={ { height: '50vh', margin: '40px' } }></div>
     </div>
   )
