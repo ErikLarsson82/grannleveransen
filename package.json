@@ -2,10 +2,9 @@
   "name": "isolations-hjalpen",
   "version": "0.0.2",
   "description": "Hack the Crisis Sweden prototype for matchmaking",
-  "main": "express.js",
+  "main": "-",
   "scripts": {
-    "start": "react-scripts build && node express.js",
-    "dev": "react-scripts start",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -34,14 +33,13 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "/",
+  "homepage": "http://grannleveransen.se",
   "dependencies": {
     "@material-ui/core": "^4.9.9",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
     "google-maps-react": "^2.0.2",
     "js-cookie": "^2.2.1",
     "react": "^16.13.1",
