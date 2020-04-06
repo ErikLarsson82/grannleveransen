@@ -42,7 +42,7 @@ function WelcomeNeeder(props) {
           Ta bort användare
         </Button>
         <Link to='/needer/searchmatch'>
-          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={search}>
+          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
             Be om hjälp nu
           </Button>
         </Link>
