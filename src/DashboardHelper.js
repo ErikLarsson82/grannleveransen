@@ -67,6 +67,7 @@ function DashboardHelper(props) {
   }, [])
 
   function sendMessage() {
+    if (selected === null || text === "") return
     const config = {
       method: 'POST',
       headers: {
@@ -75,6 +76,7 @@ function DashboardHelper(props) {
       body: JSON.stringify({ id: selected.id, message: text })
     }
     fetch(API + '/message', config)
+      .then(() => setText(""))
   }
 
   function done(e) {
@@ -108,7 +110,7 @@ function DashboardHelper(props) {
       </div>
       <div className="contact-info">
         <div className="contact-inputs">
-          <TextField onChange={ x => setText(x.target.value) } classes={{ 'root': 'input-large' }} id="outlined-basic" label="Här är mitt nummer 076-XXX YYY" />
+          <TextField onKeyPress={e => e.key === "Enter" && sendMessage(e)} onChange={ x => setText(x.target.value) } classes={{ 'root': 'input-large' }} id="outlined-basic" label="Här är mitt nummer 076-XXX YYY" value={text} />
           {
             selected && <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" class="SendMessage" color="primary" onClick={sendMessage}>
               Skicka meddelande
