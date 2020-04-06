@@ -90,26 +90,26 @@ function DashboardHelper(props) {
     </p>
   )
 
-  const DoneButton = () => (
-    <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={done}>
-      Färdig
-    </Button>
-  )
-
   return (
     <div>
       <h1>Välkommen <span className="helper">HJÄLPARE</span></h1>
-      { selected === null && <HelpText /> }
       <div className="button-holder">
         <Link to='/'>
           <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={removeuser}>
             Gå tillbaka
           </Button>
         </Link>
-        { selected !== null && <DoneButton />}
+        {
+          selected && (
+            <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={done}>
+              Färdig
+            </Button>
+          )
+        }
       </div>
       {
-        selected && [
+        selected
+        ? [
           <hr key="divider" />,
           <div key="contact-info" className="contact-info">
             <div className="contact-inputs">
@@ -121,10 +121,11 @@ function DashboardHelper(props) {
             <div>
               <p>Du har markerat { selected && selected.id }</p>
               <p>Han/Hon är { km(selected && selected.id) } ifrån dig</p>
-              <p>Han/Hon har skrivit detta: { selected && selected.message }</p>
+              <p>Meddelande:<br/><span className="msg">{ selected && selected.message }</span></p>
             </div>
           </div>
         ]
+        : <HelpText />
       }
       <div ref={ref} id="map" style={ { height: '50vh', margin: '40px' } }></div>
     </div>

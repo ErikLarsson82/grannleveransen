@@ -26,6 +26,10 @@ hr {
   margin: 40px;
 }
 
+.msg {
+  color: #fb00ff;
+}
+
 .smol {
   margin-left: 400px;
   width: 300px;
@@ -129,7 +133,7 @@ hr {
 
 .message {
   border: 3px solid white;
-  background-color: #083e3e;
+  background-color: #055214;
   -webkit-box-shadow: 10px 10px 34px -10px rgba(0,0,0,0.75);
   -moz-box-shadow: 10px 10px 34px -10px rgba(0,0,0,0.75);
   box-shadow: 10px 10px 34px -10px rgba(0,0,0,0.75);
