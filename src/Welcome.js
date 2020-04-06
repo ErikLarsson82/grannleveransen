@@ -17,6 +17,7 @@ function Welcome(props) {
   return (
     <div>
       <h2>Välkommen ny användare</h2>
+      <h4>Denna site är endast kompatibel med Google Chrome och Desktop/Laptop</h4>
       <p className="who">Vem är du?</p>
       <div className="button-holder">
         <Link to='helper/createuser'>

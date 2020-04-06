@@ -11,6 +11,11 @@ h3 {
   margin: 0;
 }
 
+h4 {
+  font-size: 20px;
+  color: cadetblue;
+}
+
 ul {
   display: flex;
   flex-direction: column;
@@ -118,7 +123,8 @@ hr {
 }
 
 .who {
-  padding-top: 10px;
+  padding-top: 40px;
+  font-size: 60px;
 }
 
 .message {
