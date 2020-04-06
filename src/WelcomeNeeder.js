@@ -25,7 +25,7 @@ function WelcomeNeeder(props) {
       },
       body: JSON.stringify(payload)
     }
-    fetch('http://localhost:1337/helper', config)
+    fetch('https://grannleveransen-be.herokuapp.com/helper', config)
   }
 
   return (

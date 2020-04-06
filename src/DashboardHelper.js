@@ -27,7 +27,7 @@ function DahboardHelper(props) {
       
       const me = cookie.getJSON('me')
 
-      fetch('http://localhost:1337/helper-list')
+      fetch('https://grannleveransen-be.herokuapp.com/helper-list')
         .then( res => res.json() )
         .then( helpers => {
 
