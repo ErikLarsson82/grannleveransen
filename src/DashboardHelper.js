@@ -27,7 +27,7 @@ function DahboardHelper(props) {
       
       const me = cookie.getJSON('me')
 
-      fetch('https://grannleveransen-be.herokuapp.com/helper-list')
+      fetch('http://localhost:1338/needers')
         .then( res => res.json() )
         .then( helpers => {
 
@@ -50,8 +50,9 @@ function DahboardHelper(props) {
             title: 'Det här är du'
           });
           
-          helpers.filter(x => x.agent === "NEEDER")
-            .map(x => createCircle(google, map, setSelected, x))
+          // .filter(x => x.agent === "NEEDER")
+
+          helpers.map(x => createCircle(google, map, setSelected, x))
         })
     }
 
@@ -73,12 +74,28 @@ function DahboardHelper(props) {
     //console.log('helping')
   }
 
+  function sendHelloMsg() {
+    const config = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ id: "id-930408", message: 'Jag vill hjälpa dig. Mitt nummer är 076-1337 1337. Ring mig.' })
+    }
+    fetch('http://localhost:1338/message', config)
+  }
+
   const HelpButton = () => (
     <Link to='/helper/establishcontacthelper'>
       <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={help}>
         Hjälp denna person
       </Button>
     </Link>
+  )
+  const SendButton = () => (
+    <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={sendHelloMsg}>
+      Skicka msg
+    </Button>
   )
   const Info = () => (
     <div>
@@ -104,6 +121,9 @@ function DahboardHelper(props) {
             Gå tillbaka
           </Button>
         </Link>
+        {
+          selected !== null && <SendButton />
+        }
         {
           selected !== null && <HelpButton />
         }
