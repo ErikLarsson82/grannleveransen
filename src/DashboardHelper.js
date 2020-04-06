@@ -65,32 +65,26 @@ function DahboardHelper(props) {
     document.body.appendChild(script);
   }, [])
 
-  useEffect(() => {
-    //console.log('i react whenefer selected changes')
-    //createCircle(google, map, setSelected, x)
-  }, [selected])
-
-  function help() {
-    //console.log('helping')
-  }
-
   function sendHelloMsg() {
     const config = {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ id: "id-930408", message: 'Jag vill hjälpa dig. Mitt nummer är 076-1337 1337. Ring mig.' })
+      body: JSON.stringify({ id: selected.id, message: 'Jag vill hjälpa dig. Mitt nummer är 076-1337 1337. Ring mig.' })
     }
     fetch('http://localhost:1338/message', config)
   }
 
+  function done(e) {
+    selected.hook.setMap(null)
+    setSelected(null)
+  }
+
   const HelpButton = () => (
-    <Link to='/helper/establishcontacthelper'>
-      <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={help}>
-        Hjälp denna person
-      </Button>
-    </Link>
+    <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={done}>
+      Färdig
+    </Button>
   )
   const SendButton = () => (
     <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={sendHelloMsg}>
@@ -100,8 +94,9 @@ function DahboardHelper(props) {
   const Info = () => (
     <div>
       <br />
-      Du har markerat { selected }<br />
-      Hen är { km(selected) } ifrån dig
+      Du har markerat { selected.id }<br />
+      Hen är { km(selected.id) } ifrån dig<br />
+      Hen har skrivit detta: { selected.message }
     </div>
   )
   
@@ -147,12 +142,11 @@ function createCircle(google, map, setSelected, input, color) {
     radius: RADIUS * 1.1,
     zIndex: 1
   })
-  c.customID = input.id
+  c.customData = input
+  c.customData.hook = c
 
   google.maps.event.addListener(c, 'click', function(e) {
-    setSelected(c.customID)
-    //c.strokeColor('red')
-    //console.log(c)
+    setSelected(c.customData)
   })
 }
 

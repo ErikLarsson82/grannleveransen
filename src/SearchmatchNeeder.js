@@ -25,7 +25,12 @@ class SearchmatchNeeder extends React.Component {
     this.connection = connection
      
     connection.onopen = () => {
-      connection.send(JSON.stringify({ id: me.id, event: 'handshake', position: me.position })) 
+      connection.send(JSON.stringify({
+        id: me.id,
+        event: 'handshake',
+        position: me.position,
+        message: me.message
+      })) 
     }
      
     connection.onerror = (error) => {
@@ -53,6 +58,7 @@ class SearchmatchNeeder extends React.Component {
     const { messages } = this.state
     const me = cookie.getJSON('me')
 
+    console.log(me.message)
     return (
 
       <div>

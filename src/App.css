@@ -145,3 +145,14 @@ hr {
   text-align: left;
   margin: 0px 30px 31px 38px;
 }
+
+.input-large {
+  margin: 30px;
+}
+
+.input-large > div > input {
+  font-size: 70px;
+  background-color: #3b414e3b;
+  color: white;
+  padding: 14px;
+}
