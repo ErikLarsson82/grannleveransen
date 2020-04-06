@@ -13,7 +13,7 @@ function toLatLng(google, e) {
   return new google.maps.LatLng(e.lat, e.lng)
 }
 
-function DahboardHelper(props) {
+function DashboardHelper(props) {
   const ref = React.createRef()
   const selectedMarker = React.createRef()
   
@@ -37,10 +37,7 @@ function DahboardHelper(props) {
 
           const google = window.google
 
-          const pos = {
-            lat: 59.349142465871864,
-            lng: 18.07889355468749
-          }
+          const pos = me.position
 
           let map = new google.maps.Map(ref.current, {
             zoom: 13,
@@ -155,4 +152,4 @@ function km() {
   return "13 km"
 }
 
-export default DahboardHelper
+export default DashboardHelper
