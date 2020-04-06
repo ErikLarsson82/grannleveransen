@@ -19,7 +19,7 @@ class SearchmatchNeeder extends React.Component {
   componentDidMount() {
     const me = cookie.getJSON('me')
 
-    const url = 'ws://grannleveransen-be.herokuapp.com'
+    const url = 'wss://grannleveransen-be.herokuapp.com'
     const connection = new WebSocket(url)
 
     this.connection = connection
