@@ -160,6 +160,11 @@ hr {
   margin: 30px;
 }
 
+.input-large > label {
+  font-size: 38px;
+  margin: 30px;
+}
+
 .input-large > div > input {
   font-size: 70px;
   background-color: #3b414e3b;

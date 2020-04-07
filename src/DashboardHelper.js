@@ -113,8 +113,8 @@ function DashboardHelper(props) {
           <hr key="divider" />,
           <div key="contact-info" className="contact-info">
             <div className="contact-inputs">
-              <TextField onKeyPress={e => e.key === "Enter" && sendMessage(e)} onChange={ x => setText(x.target.value) } classes={{ 'root': 'input-large' }} id="outlined-basic" label="Här är mitt nummer 076-XXX YYY" value={text} />
-              <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={sendMessage}>
+              <TextField onKeyPress={e => e.key === "Enter" && sendMessage(e)} onChange={ x => setText(x.target.value) } classes={{ 'root': 'input-large' }} id="filled-basic" label="Skicka meddelande" value={text} />
+              <Button classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={sendMessage}>
                 Skicka meddelande
               </Button>
             </div>
