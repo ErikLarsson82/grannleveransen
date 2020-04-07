@@ -1,6 +1,8 @@
 # grannleveransen.se
 Hack the Crisis Sweden prototype for matchmaking - grannleveransen.se
 
+This version is called 'version-1' and is probably obsolete since we use react now
+
 ## To run locally
 * Install node on your machine.
 * Run ```npm install``` to install dependencies locally
