@@ -172,3 +172,7 @@ hr {
   display: flex;
   flex-direction: column;
 }
+
+.SendMessage {
+  font-size: 20px;
+}

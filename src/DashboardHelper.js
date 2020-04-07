@@ -87,7 +87,7 @@ function DahboardHelper(props) {
 
   const HelpText = () => (
     <p>
-      Välj en blå cirkel nedan - det är någon som behöver din hjälp!
+      Välj en blå cirkel nedan för att hjälpa någon!
     </p>
   )
 
@@ -113,7 +113,7 @@ function DahboardHelper(props) {
         <div className="contact-inputs">
           <TextField onChange={ x => setText(x.target.value) } classes={{ 'root': 'input-large' }} id="outlined-basic" label="Här är mitt nummer 076-XXX YYY" />
           {
-            selected && <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={sendMessage}>
+            selected && <Button classes={{ 'label': 'larger' }} classes={{ 'label': 'larger' }} variant="contained" class="SendMessage" color="primary" onClick={sendMessage}>
               Skicka meddelande
             </Button>
           }
