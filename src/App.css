@@ -170,7 +170,6 @@ hr {
 
 .contact-inputs {
   display: flex;
-  flex-direction: column;
 }
 
 .SendMessage {
