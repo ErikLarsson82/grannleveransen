@@ -7,7 +7,7 @@ import colors from './colors';
 
 const RADIUS = 600
 const isLocalhost = window.location.host.indexOf("localhost") !== -1
-const API = isLocalhost ? 'http://localhost:3000' : 'http://grenas-be.herokuapp.com'
+const API = isLocalhost ? 'http://localhost:789' : 'https://grannleveransen-be.herokuapp.com'
 
 // const API = "http://localhost:3000"
 console.log(API)
