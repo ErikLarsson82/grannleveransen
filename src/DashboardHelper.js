@@ -122,7 +122,7 @@ function DahboardHelper(props) {
         <div>
           <p>Du har markerat { selected && selected.id }</p>
           <p>Hen är { km(selected && selected.id) } ifrån dig</p>
-          <p>Hen har skrivit detta: { selected && selected.message }</p>
+          <p>Han/Hon behöver hjälp att { selected && selected.message }</p>
         </div>
       </div>
       <div ref={ref} id="map" style={ { height: '50vh', margin: '40px' } }></div>
