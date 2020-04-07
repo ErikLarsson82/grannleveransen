@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import cookie from 'js-cookie';
 import colors from './colors'
 
-//test
-
 let pos
 
 const RADIUS = 400
