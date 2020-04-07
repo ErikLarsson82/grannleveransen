@@ -7,7 +7,10 @@ import colors from './colors';
 
 const RADIUS = 600
 const isLocalhost = window.location.host.indexOf("localhost") !== -1
-const API = isLocalhost ? 'http://localhost:1337' : 'https://grannleveransen-be.herokuapp.com'
+const API = isLocalhost ? 'http://localhost:789' : 'https://grannleveransen-be.herokuapp.com'
+
+//const API = "http://localhost:3001"
+//console.log(API)
 
 function toLatLng(google, e) {
   return new google.maps.LatLng(e.lat, e.lng)
@@ -19,6 +22,7 @@ function DashboardHelper(props) {
   
   const [ selected, setSelected ] = useState(null)
   const [ text, setText ] = useState("")
+  const [ error, setError ] = useState(null)
 
   function removeuser() {
     cookie.remove('me')
@@ -54,6 +58,9 @@ function DashboardHelper(props) {
           // .filter(x => x.agent === "NEEDER")
 
           helpers.map(x => createCircle(google, map, setSelected, x))
+        })
+        .catch(e => {
+          setError(`Något gick fel vid anslutningen, kontrollera att ${API}/needers ger ett korrekt svar - ${e}`)
         })
     }
 
@@ -126,6 +133,11 @@ function DashboardHelper(props) {
           </div>
         ]
         : <HelpText />
+      }
+      {
+        error && (
+          <span style={ { fontSize: '50px' }}>{error}</span>
+        )
       }
       <div ref={ref} id="map" style={ { height: '50vh', margin: '40px' } }></div>
     </div>
