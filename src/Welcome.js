@@ -48,10 +48,8 @@ function Welcome(props) {
         <li>Richard Bunk</li>
         <li>Megan Gustafsson</li>
         <li>Tim Fredriksson</li>
-        <li>Jesper Thörnberg</li>
         <li>Minna Storm</li>
         <li>Ravindra Singh</li>
-        <li>Sida Jiang</li>
         <li>William Samuelsson</li>
       </ul>
       </div>
