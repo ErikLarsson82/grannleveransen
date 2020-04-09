@@ -1,0 +1,115 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Roboto', sans-serif;
+	background-color: #FBFFF9;
+}
+
+h1 {
+	font-size: 40px;
+	padding: 24px 0px 12px 35px;
+	background-color: #2D3A3A;
+	color: white;
+	margin-top: 0;
+	border-top-left-radius: 40px;
+	border-top-right-radius: 40px;
+}
+
+p {
+	font-size: 20px;
+}
+
+ul {
+	margin-left: 35px;
+	font-size: 22px; 
+	list-style: none;
+}
+
+ul li::before {
+  content: "\2611";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
+  color: #2BA84A; /* Change the color */
+  font-weight: bold; /* If you want it to be bold */
+  display: inline-block; /* Needed to add space between the bullet and the text */
+  width: 1em; /* Also needed for space (tweak if needed) */
+  margin-left: 0em; /* Also needed for space (tweak if needed) */
+}
+
+.ingress {
+	font-size: 30px;
+}
+
+.imgfix {
+    margin-left: -8px;
+    padding-bottom: 40px;
+}
+
+#holy-root {
+	display: grid;
+	grid-template-columns: auto 1500px auto;
+  	grid-template-rows: 70px 1fr 70px;
+	height: 100vh;
+	min-width: 400px;
+	min-height: 300px;
+	padding: 0;
+	margin: 0;
+}
+
+#holy-root > section {
+	height: fit-content;
+    display: grid;
+}
+
+#holy-root > section > div {
+	background-color: #FBFFF9;
+}
+
+header, footer {
+	display: grid;
+	align-items: center;
+	text-align: center;
+	grid-column: span 3;
+	background-color: #2D3A3A;
+	color: white;
+}
+
+.splash {
+	grid: 
+		'neutral helper'
+		'neutral needer';
+
+}
+
+.neutral {
+	grid-area: neutral;
+}
+
+.helper {
+	grid-area: helper;
+}
+
+.needer {
+	grid-area: needer;
+}
+
+.needer h1 {
+	background-color: #D45113;
+}
+
+.helper h1 {
+	background-color: #248232;
+}
+
+.box {
+	-webkit-box-shadow: 6px 10px 59px -28px rgba(31,7,31,0.71);
+	-moz-box-shadow: 6px 10px 59px -28px rgba(31,7,31,0.71);
+	box-shadow: 6px 10px 59px -28px rgba(31,7,31,0.71);
+	margin: 35px;
+	border-top-left-radius: 40px;
+	border-top-right-radius: 40px;
+}
+
+.box p, .box span {
+	margin: 23px;
+	margin-left: 35px;
+}
+
