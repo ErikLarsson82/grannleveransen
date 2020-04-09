@@ -4,9 +4,6 @@ Hack the Crisis Sweden prototype for matchmaking
 ## To run locally
 First run ```npm install```
 
-Create a ```.env``` file in the root folder with the API key to Google API
-API_KEY=AIzaSy...
-
 ```npm run dev``` - Builds the code, hosts the app on a local webserver and watches the changes in src/ folder and rebuilds automatically.
 
 

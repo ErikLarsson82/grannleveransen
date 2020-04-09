@@ -15,7 +15,7 @@ function getLatLng(e) {
   }
 }
 
-function CreateuserHelper(props) {
+export default function CreateuserHelper(props) {
   const ref = createRef()
 
   function createUser() {
@@ -59,7 +59,7 @@ function CreateuserHelper(props) {
 
     const script = document.createElement("script");
 
-    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAOxsbI1PYUHS7iDMIQuivzYrWxxQFo9FQ&libraries=drawing&callback=initMap";
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDkSg0PK-pws_WrBTjEwdS2Cz3BD5oyO0s&libraries=drawing&callback=initMap";
     script.async = true;
     script.defer = true;
 
@@ -78,7 +78,7 @@ function CreateuserHelper(props) {
             Gå tillbaka
           </Button>
         </Link>
-        <Link to='/helper/dashboardhelper'>
+        <Link to='/helper/dashboard'>
           <Button classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={createUser}>
             Skapa användare (kaka) - Hjälpare
           </Button>
@@ -89,4 +89,3 @@ function CreateuserHelper(props) {
   )
 }
 
-export default CreateuserHelper

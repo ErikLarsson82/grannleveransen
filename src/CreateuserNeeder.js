@@ -15,7 +15,7 @@ function getLatLng(e) {
   }
 }
 
-function CreateuserNeeder(props) {
+export default function CreateuserNeeder(props) {
   
   const ref = createRef()
 
@@ -64,7 +64,7 @@ function CreateuserNeeder(props) {
 
     const script = document.createElement("script");
 
-    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAOxsbI1PYUHS7iDMIQuivzYrWxxQFo9FQ&libraries=drawing&callback=initMap";
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDkSg0PK-pws_WrBTjEwdS2Cz3BD5oyO0s&libraries=drawing&callback=initMap";
     script.async = true;
     script.defer = true;
 
@@ -82,7 +82,7 @@ function CreateuserNeeder(props) {
             Gå tillbaka
           </Button>
         </Link>
-        <Link to='/needer/welcome'>
+        <Link to='/needer/entermessage'>
           <Button classes={{ 'label': 'larger' }} variant="contained" color="primary" onClick={createUser}>
             Skapa användare (kaka) - MOTTAGARE
           </Button>
@@ -92,5 +92,3 @@ function CreateuserNeeder(props) {
     </div>
   )
 }
-
-export default CreateuserNeeder

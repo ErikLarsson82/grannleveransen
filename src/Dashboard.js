@@ -6,17 +6,12 @@ import cookie from 'js-cookie';
 import colors from './colors';
 
 const RADIUS = 600
-const isLocalhost = window.location.host.indexOf("localhost") !== -1
-const API = isLocalhost ? 'http://localhost:789' : 'https://grannleveransen-be.herokuapp.com'
-
-// const API = "http://localhost:3000"
-console.log(API)
 
 function toLatLng(google, e) {
   return new google.maps.LatLng(e.lat, e.lng)
 }
 
-function DashboardHelper(props) {
+export default function Dashboard(props) {
   const ref = React.createRef()
   const selectedMarker = React.createRef()
   
@@ -35,7 +30,7 @@ function DashboardHelper(props) {
       
       const me = cookie.getJSON('me')
 
-      fetch(API + '/needers')
+      fetch('/needers')
         .then( res => res.json() )
         .then( helpers => {
 
@@ -55,18 +50,16 @@ function DashboardHelper(props) {
             title: 'Det här är du'
           });
           
-          // .filter(x => x.agent === "NEEDER")
-
           helpers.map(x => createCircle(google, map, setSelected, x))
         })
-        .catch(e => {
-          setError(`Något gick fel vid anslutningen, kontrollera att ${API}/needers ger ett korrekt svar - ${e}`)
-        })
+        .catch(e => 
+          setError(`Något gick fel vid anslutningen - kontrollera nätverket - ${e}`)
+        )
     }
 
     const script = document.createElement("script");
 
-    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAOxsbI1PYUHS7iDMIQuivzYrWxxQFo9FQ&libraries=drawing&callback=initMap";
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyDkSg0PK-pws_WrBTjEwdS2Cz3BD5oyO0s&libraries=drawing&callback=initMap";
     script.async = true;
     script.defer = true;
 
@@ -82,7 +75,7 @@ function DashboardHelper(props) {
       },
       body: JSON.stringify({ id: selected.id, message: text })
     }
-    fetch(API + '/message', config)
+    fetch('/message', config)
       .then(() => setText(""))
   }
 
@@ -168,5 +161,3 @@ function createCircle(google, map, setSelected, input, color) {
 function km() {
   return "13 km"
 }
-
-export default DashboardHelper

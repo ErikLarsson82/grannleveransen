@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField';
 import { Link } from 'react-router-dom';
 import cookie from 'js-cookie';
 
-function WelcomeNeeder(props) {
+export default function EnterMessage(props) {
   
   const [ text, setText ] = useState("")
 
@@ -60,5 +60,3 @@ function WelcomeNeeder(props) {
     </div>
   )
 }
-
-export default WelcomeNeeder
