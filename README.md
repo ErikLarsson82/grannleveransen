@@ -12,6 +12,7 @@ API_KEY=AIzaSy...
 
 ## To deploy
 ```npm run start``` - Build production code and start webserver
+
 You need access, ask Erik Larsson or Tim Fredriksson to deploy to heroku. Add API_KEY to environment variable.
 
 ### Sanity check in terminal
