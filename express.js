@@ -46,17 +46,11 @@ app.use("/", express.static('public/'))
 
 app.use("/bundle.js", express.static('dist/bundle.js'))
 
-app.use("/needer/welcome", express.static('public/'))
 app.use("/needer/createuser", express.static('public/'))
-app.use("/needer/searchmatch", express.static('public/'))
-app.use("/needer/foundnomatch", express.static('public/'))
-app.use("/needer/foundlistofmatches", express.static('public/'))
-app.use("/needer/goodsreceived", express.static('public/'))
+app.use("/needer/entermessage", express.static('public/'))
+
 app.use("/helper/createuser", express.static('public/'))
-app.use("/helper/dashboardhelper", express.static('public/'))
-app.use("/helper/searchmatch", express.static('public/'))
-app.use("/helper/establishcontacthelper", express.static('public/'))
-app.use("/helper/contactfound", express.static('public/'))
+app.use("/helper/dashboard", express.static('public/'))
 
 /*	Use node module body-parser to be able to read request.body in the request handlers */
 app.use(bodyParser.urlencoded({ extended: false }))
