@@ -35,7 +35,7 @@ function Welcome(props) {
       </div>
       <div className="links">
         <p>
-          Source code at <a href="https://github.com/ErikLarsson82/isolations-hjalpen">https://github.com/ErikLarsson82/isolations-hjalpen</a>
+          Source code at <a href="https://github.com/ErikLarsson82/grannleveransen">https://github.com/ErikLarsson82/grannleveransen</a>
         </p>
         <p>
           Short movie with demo of features <a href="https://www.dropbox.com/s/mtv8wb0m42xeep4/grann-supershort.mp4?dl=0">https://www.dropbox.com/s/mtv8wb0m42xeep4/grann-supershort.mp4?dl=0</a>
