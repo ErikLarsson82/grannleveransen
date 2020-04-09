@@ -30,7 +30,9 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
-    "webpack": "^4.42.1"
+    "webpack": "^4.42.1",
+    "http": "0.0.1-security",
+    "ws": "^7.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
@@ -38,8 +40,6 @@
     "@babel/preset-react": "^7.9.4",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.1",
-    "webpack-cli": "^3.3.11",
-    "http": "0.0.1-security",
-    "ws": "^7.2.3"
+    "webpack-cli": "^3.3.11"
   }
 }
