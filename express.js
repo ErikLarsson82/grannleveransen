@@ -9,7 +9,7 @@ const httpServer = http.createServer(app)
 const wss = new WebSocket.Server({
     'server': httpServer
 })
-//
+
 /*  Volatile list of connections in the system - this should be replaced with a database,
 	since inactivity or any error in the code restarts the webserver and wipes the list */
 let connections = []
@@ -42,28 +42,21 @@ function websocketMessageClient(msgObj) {
   })
 }
 
-/*
-app.use(function(req, res, next) {
-  // Change this URL to the one where the frontend code is deployed
-  // For example https://isolations-hjalpen.herokuapp.com for the deployed code
-  // and http://localhost:3000 for local development
-  res.header("Access-Control-Allow-Origin", "https://isolations-hjalpen.herokuapp.com")
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-  next()
-})
-*/
-app.use("/", express.static('build'))
-app.use("/needer/welcome", express.static('build'))
-app.use("/needer/createuser", express.static('build'))
-app.use("/needer/searchmatch", express.static('build'))
-app.use("/needer/foundnomatch", express.static('build'))
-app.use("/needer/foundlistofmatches", express.static('build'))
-app.use("/needer/goodsreceived", express.static('build'))
-app.use("/helper/createuser", express.static('build'))
-app.use("/helper/dashboardhelper", express.static('build'))
-app.use("/helper/searchmatch", express.static('build'))
-app.use("/helper/establishcontacthelper", express.static('build'))
-app.use("/helper/contactfound", express.static('build'))
+app.use("/", express.static('public/'))
+
+app.use("/bundle.js", express.static('dist/bundle.js'))
+
+app.use("/needer/welcome", express.static('public/'))
+app.use("/needer/createuser", express.static('public/'))
+app.use("/needer/searchmatch", express.static('public/'))
+app.use("/needer/foundnomatch", express.static('public/'))
+app.use("/needer/foundlistofmatches", express.static('public/'))
+app.use("/needer/goodsreceived", express.static('public/'))
+app.use("/helper/createuser", express.static('public/'))
+app.use("/helper/dashboardhelper", express.static('public/'))
+app.use("/helper/searchmatch", express.static('public/'))
+app.use("/helper/establishcontacthelper", express.static('public/'))
+app.use("/helper/contactfound", express.static('public/'))
 
 /*	Use node module body-parser to be able to read request.body in the request handlers */
 app.use(bodyParser.urlencoded({ extended: false }))

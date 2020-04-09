@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Welcome from './Welcome';
 import WelcomeNeeder from './WelcomeNeeder';
 import CreateuserHelper from './CreateuserHelper';
@@ -13,7 +14,6 @@ import EstablishContactHelper from './EstablishContactHelper';
 import ContactFound from './ContactFound';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 
-import './App.css';
 import cookie from 'js-cookie';
 
 window.test = cookie
@@ -52,4 +52,7 @@ function App(props) {
   )
 }
 
-export default App;
+ReactDOM.render(
+  <App />,
+  document.getElementById('root')
+);
