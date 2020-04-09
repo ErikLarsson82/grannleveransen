@@ -48,6 +48,7 @@ app.use("/bundle.js", express.static('dist/bundle.js'))
 
 app.use("/needer/createuser", express.static('public/'))
 app.use("/needer/entermessage", express.static('public/'))
+app.use("/needer/searchmatch", express.static('public/'))
 
 app.use("/helper/createuser", express.static('public/'))
 app.use("/helper/dashboard", express.static('public/'))

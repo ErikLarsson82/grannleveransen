@@ -7,6 +7,7 @@ import SplashScreen from './SplashScreen';
 
 import CreateuserNeeder from './CreateuserNeeder';
 import EnterMessage from './EnterMessage';
+import SearchMatch from './SearchMatch';
 
 import CreateuserHelper from './CreateuserHelper';
 import Dashboard from './Dashboard';
@@ -27,6 +28,7 @@ function App(props) {
             
             <Route path="/needer/createuser" exact component={CreateuserNeeder} />
             <Route path="/needer/entermessage" exact component={EnterMessage} />
+            <Route path="/needer/searchmatch" exact component={SearchMatch} />
 
             <Route path="/helper/createuser" exact component={CreateuserHelper} />
             <Route path="/helper/dashboard" exact component={Dashboard} />
