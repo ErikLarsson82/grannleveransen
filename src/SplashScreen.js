@@ -3,15 +3,15 @@ import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
 import cookie from 'js-cookie';
 
-function Welcome(props) {
+export default function SplashScreen(props) {
   useEffect(() => {
     const c = cookie.getJSON('me') || {}
 
     if (c.agent === 'NEEDER') {
-      props.history.push('needer/welcome')
+      props.history.push('needer/entermessage')
     }
     if (c.agent === 'HELPER') {
-      props.history.push('helper/dashboardhelper')
+      props.history.push('helper/dashboard')
     }
   })
   return (
@@ -57,5 +57,3 @@ function Welcome(props) {
       </div>
   )
 }
-
-export default Welcome

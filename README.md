@@ -3,12 +3,16 @@ Hack the Crisis Sweden prototype for matchmaking
 
 ## To run locally
 First run ```npm install```
+
+Create a ```.env``` file in the root folder with the API key to Google API
+API_KEY=AIzaSy...
+
 ```npm run dev``` - Builds the code, hosts the app on a local webserver and watches the changes in src/ folder and rebuilds automatically.
 
 
 ## To deploy
 ```npm run start``` - Build production code and start webserver
-You need access, ask Erik Larsson or Tim Fredriksson to deploy to heroku
+You need access, ask Erik Larsson or Tim Fredriksson to deploy to heroku. Add API_KEY to environment variable.
 
 ### Sanity check in terminal
 Run these commands in git bash terminal to make sure everything is installed on your local machine
