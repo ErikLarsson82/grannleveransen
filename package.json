@@ -4,9 +4,11 @@
   "description": "Hack the Crisis Sweden prototype for matchmaking helpers and needers",
   "main": "express.js",
   "scripts": {
-    "start": "npm run build && node express.js",
-    "dev": "webpack",
-    "build": "webpack"
+    "start": "npm run build && npm run express",
+    "express": "node express.js",
+    "webpackDevelopment": "webpack --mode development",
+    "build": "webpack --mode production",
+    "dev": "concurrently \"npm run webpackDevelopment\" \"npm run express\""
   },
   "repository": {
     "type": "git",
@@ -21,6 +23,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.9",
     "body-parser": "^1.19.0",
+    "concurrently": "^5.1.0",
     "express": "^4.17.1",
     "google-maps-react": "^2.0.2",
     "js-cookie": "^2.2.1",
