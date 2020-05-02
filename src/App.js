@@ -21,18 +21,18 @@ function App(props) {
         <Link to='/'>
           <img src='/images/grannleveransen-logo.png' className="App-logo" alt="logo" />
         </Link>
-        <content className="App-content"> 
-        <h1>grannleveransen.se</h1>
+        <content className="App-content">
+        <h1 className="headerCenter">Grannleveransen</h1>
           <Switch>
             <Route path="/" exact component={SplashScreen} />
-            
+
             <Route path="/needer/createuser" exact component={CreateuserNeeder} />
             <Route path="/needer/entermessage" exact component={EnterMessage} />
             <Route path="/needer/searchmatch" exact component={SearchMatch} />
 
             <Route path="/helper/createuser" exact component={CreateuserHelper} />
             <Route path="/helper/dashboard" exact component={Dashboard} />
-            
+
             <Route path="/" component={Component404} />
           </Switch>
         </content>

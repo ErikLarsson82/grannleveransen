@@ -17,17 +17,18 @@ export default function SplashScreen(props) {
   return (
     <div>
       <h2>Välkommen ny användare</h2>
-      <h4>Denna site är endast kompatibel med Google Chrome och Desktop/Laptop</h4>
+      <h4>Denna hemsida är endast kompatibel med datorer!</h4>
       <p className="who">Vem är du?</p>
       <div className="button-holder">
         <Link to='helper/createuser'>
-          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
+          <Button className="buttonMargin" classes={{ 'label': 'larger' }} variant="contained" color="primary">
             <img alt="lifebuoy" src="images/lifebuoy-icon.png" />
             Hjälpare
           </Button>
         </Link>
+        <hr className="rainbowLine" />
         <Link to='needer/createuser'>
-          <Button classes={{ 'label': 'larger' }} variant="contained" color="primary">
+          <Button className="buttonMargin" classes={{ 'label': 'larger' }} variant="contained" color="primary">
             <img alt="helping-hand" src="images/helping-hand-icon.png" />
             Jag behöver hjälp
           </Button>
@@ -35,10 +36,10 @@ export default function SplashScreen(props) {
       </div>
       <div className="links">
         <p>
-          Source code at <a href="https://github.com/ErikLarsson82/grannleveransen">https://github.com/ErikLarsson82/grannleveransen</a>
+          Source code at <a href="https://github.com/ErikLarsson82/grannleveransen">Github</a>
         </p>
         <p>
-          Short movie with demo of features <a href="https://www.dropbox.com/s/mtv8wb0m42xeep4/grann-supershort.mp4?dl=0">https://www.dropbox.com/s/mtv8wb0m42xeep4/grann-supershort.mp4?dl=0</a>
+          Short movie with demo of features <a href="https://www.dropbox.com/s/mtv8wb0m42xeep4/grann-supershort.mp4?dl=0">Dropbox</a>
         </p>
       </div>
       <div className="credits-section">
