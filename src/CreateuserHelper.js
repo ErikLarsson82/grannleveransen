@@ -19,13 +19,13 @@ export default function CreateuserHelper(props) {
   const ref = createRef()
 
   function createUser() {
-    cookie.set('me', { position: pos, agent: 'HELPER' })    
+    cookie.set('me', { position: pos, agent: 'HELPER' })
   }
 
   useEffect(() => {
-    
+
     window.initMap = function() {
-      
+
       const google = window.google
 
       pos = {
@@ -88,4 +88,3 @@ export default function CreateuserHelper(props) {
     </div>
   )
 }
-
