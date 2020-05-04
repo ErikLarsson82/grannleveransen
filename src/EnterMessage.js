@@ -42,6 +42,7 @@ export default function EnterMessage(props) {
 
   return (
     <div>
+    <script data-ad-client="ca-pub-9612046672815263" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <h1>Välkommen <span className="needer">MOTTAGARE</span></h1>
       <p>Tryck här för att be om hjälp av andra i ditt område</p>
       <p>Jag behöver hjälp med:</p>

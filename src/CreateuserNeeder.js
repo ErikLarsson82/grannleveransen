@@ -73,6 +73,7 @@ export default function CreateuserNeeder(props) {
 
   return (
     <div>
+    <script data-ad-client="ca-pub-9612046672815263" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <h1>Skapa användare - <span className="needer">MOTTAGARE</span></h1>
       <h3>CREATEUSER-NEEDER</h3>
       <p>Dra och släpp den lila markören på kartan. Du väljer ett område och du behöver inte välja din exakta position så att du kan känna dig trygg och anonym.</p>

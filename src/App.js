@@ -23,6 +23,7 @@ function App(props) {
         </Link>
         <content className="App-content">
         <h1 className="headerCenter">Grannleveransen</h1>
+        <script data-ad-client="ca-pub-9612046672815263" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
           <Switch>
             <Route path="/" exact component={SplashScreen} />
 

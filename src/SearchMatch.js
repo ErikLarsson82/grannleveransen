@@ -79,6 +79,7 @@ export default class SearchmatchNeeder extends React.Component {
     }
     return (
       <div>
+      <script data-ad-client="ca-pub-9612046672815263" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <p>Vi letar just nu efter personer som kan hjälpa dig i ditt närområde.</p>
         <p>Stäng inte webläsaren... ({me.id})</p>
         <div className="button-holder">

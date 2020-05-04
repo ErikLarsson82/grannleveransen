@@ -92,6 +92,7 @@ export default function Dashboard(props) {
 
   return (
     <div>
+    <script data-ad-client="ca-pub-9612046672815263" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <h1>Välkommen <span className="helper">HJÄLPARE</span></h1>
       <div className="button-holder">
         <Link to='/'>

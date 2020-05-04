@@ -16,6 +16,7 @@ export default function SplashScreen(props) {
   })
   return (
     <div>
+    <script data-ad-client="ca-pub-9612046672815263" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
       <h2>Välkommen ny användare</h2>
       <h4>Denna hemsida är endast kompatibel med datorer!</h4>
       <p className="who">Vem är du?</p>
