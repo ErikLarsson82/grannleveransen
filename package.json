@@ -32,7 +32,7 @@
     "react-router-dom": "^5.1.2",
     "webpack": "^4.42.1",
     "http": "0.0.1-security",
-    "ws": "^7.2.3"
+    "ws": "^7.4.6"
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
